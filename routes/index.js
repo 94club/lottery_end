@@ -1,17 +1,11 @@
-'use strict'
-import express from 'express'
-import User from '../controller/user/user'
-const router = express.Router()
+import jwtAuth from '../config/checkToken'
+import user from './user'
+import unAuth from './unAuth'
+import redisManager from '../config/redis'
 
-router.post('/login', User.login) // 保存用户信息
-router.get('/getAwardsList', User.getAwardsList) // 获取所有奖项
-router.get('/userInfo/:user_id', User.getUserInfo) // 获取用户信息
-router.get('/getResultByUser', User.getResultByUser)
-router.post('/saveRedeemNum', User.saveRedeemNum) // 保存开奖结果
-router.post('/getLuckyNum', User.getLuckyNum) // 获取抽奖号码
-router.post('/addAwards', User.addAwards) // 新增奖项
-router.post('/deleteAwards', User.deleteAwards) // 新增奖项
-router.post('/updateLuckyNumSwitch', User.updateLuckyNumSwitch) // 更新抽奖开关
-router.get('/getAllUser', User.getAllUser) // 获取所有用户
-
-export default router
+export default (app) => {
+  app.use('/api', unAuth)
+  app.use(jwtAuth) // 验证token的有效性
+  app.use(redisManager.refreshToken) // 每一次请求都刷新token的过期时间
+  app.use('/user', user)
+}

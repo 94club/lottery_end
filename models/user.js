@@ -5,15 +5,13 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-	userName: String,
+	username: String,
 	id: Number,
 	createTime: String,
 	lang: String, // 语言
-	role: Number,  // 1嘉宾 2管理员
+	role: Number,  // 0 普通 1管理
 	avatar: {type: String, default: '/public/img/avatar.jpg'}, // 头像
-	company: String,
-	hadPrize: Boolean,
-	level: String
+	hadPrize:{type: Boolean, default: false}
 })
 
 const User = mongoose.model('User', userSchema)
