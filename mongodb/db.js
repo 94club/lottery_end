@@ -32,11 +32,19 @@ db.on('close', function () {
   console.log(
     chalk.red('数据库断开，重新连接数据库')
   )
-  mongoose.connect(config.url, {
-    server: {
-      auto_reconnect: true
-    }
-  })
+  if (process.env.NODE_ENV === 'dev') {
+    mongoose.connect('mongodb://localhost:27017/lottery_test', {
+      server: {
+        auto_reconnect: true
+      }
+    })
+  } else {
+    mongoose.connect('mongodb://localhost:27017/lottery_test', {
+      server: {
+        auto_reconnect: true
+      }
+    })
+  }
 })
 
 export default db
