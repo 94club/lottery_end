@@ -34,6 +34,7 @@ function refreshToken (req, res, next) {
   let token = getToken(req.headers)
   redisClient.get(token, (err, reply) => {
     if (reply) {
+      console.log(reply + 'get')
       // token 在redis中存在，更新过期时间
       redisClient.expire(token, constant.expireTime, function(err, reply) {
         if (err) return false
@@ -48,10 +49,10 @@ function refreshToken (req, res, next) {
   })
 }
 
-function set (token) {
-  redisClient.set(token, token, function (err, reply) {
+function set (token, username) {
+  redisClient.set(token, username, function (err, reply) {
     if (err) return false
-    console.log(reply)
+    console.log(reply + 'set')
     if (reply) {
       // 设置过期时间
       redisClient.expire(token, constant.expireTime, function(err, reply) {
@@ -59,6 +60,19 @@ function set (token) {
       })
     }
   })
+  // 找到旧的token并删除
+  redisClient.get('token_map_' + username, function(err, reply) {
+    // reply is null when the key is missing
+    console.log(reply + '----oldToken')
+    if (reply) {
+      redisClient.del(reply)
+      console.log('delete old')
+    }
+    // 覆盖旧的token
+    redisClient.set('token_map_' + username, token)
+  });
+  
+
 }
 
 function remove (req, next) {
