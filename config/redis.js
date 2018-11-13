@@ -37,7 +37,6 @@ function refreshToken (req, res, next) {
       // token 在redis中存在，更新过期时间
       redisClient.expire(token, constant.expireTime, function(err, reply) {
         if (err) return false
-        console.log('更新token时间成功')
         next()
       })
     } else {
@@ -57,7 +56,6 @@ function set (token) {
       // 设置过期时间
       redisClient.expire(token, constant.expireTime, function(err, reply) {
         if (err) return false
-        console.log('更新token时间成功')
       })
     }
   })

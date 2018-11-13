@@ -3,3 +3,11 @@
 
 # api文档
 apidoc -i ./controller -o ./public/apidoc
+
+# 开启mongodb
+打开cmd 进入D:\MongoDB\Server\4.0\bin
+> mongod -f D:\MongoDB\Server\4.0\etc\mongodb.conf
+
+# 开启redis
+打开cmd 进入D:\software\redis
+> redis-server.exe redis.windows.conf
