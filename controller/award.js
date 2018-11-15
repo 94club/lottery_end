@@ -11,6 +11,8 @@ class Award extends BaseComponent{
     super()
     this.getAwardsList = this.getAwardsList.bind(this)
     this.addAward = this.addAward.bind(this)
+    this.getAwardItemStatus = this.getAwardItemStatus.bind(this)
+    this.getLucyNum = this.getLucyNum.bind(this)
   }
 
   /**
@@ -147,6 +149,141 @@ class Award extends BaseComponent{
     })
   }
   
+  /**
+   *
+   * @api {get} /award/awardsAdd  添加奖项
+   * @apiName 添加奖项
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 添加奖项
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '查询成功'
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '查询失败',
+   *  }
+   */
+  async getAwardItemStatus (req, res, next) {
+    let type = req.query.type
+    let level = req.query.level
+    console.log(type)
+    console.log(level)
+    try {
+      if (!type) {
+        throw new Error('类型不能为空')
+      } else if (!level) {
+        throw new Error('轮次不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let awardInfo = await AwardModel.find({'awardList.level': {$eq: level}}, {'awardList.$': 1})
+    if (awardInfo && awardInfo.length > 0) {
+      let status
+      if (type === 'lottery') {
+        status = awardInfo[0].awardList[0].isLotteryOver
+      }
+      if (type === 'openResult') {
+        status = awardInfo[0].awardList[0].isOpenResultOver
+      }
+      res.json({
+        status: 200,
+        message: '查询数据成功',
+        data: status
+      })
+    } else {
+      next({
+        status: 0,
+        message: '查询数据失败'
+      })
+    }
+  }
+
+  /**
+   *
+   * @api {get} /award/getLucyNum  获取幸运号码
+   * @apiName 获取幸运号码
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 获取幸运号码
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '查询成功',
+   *   data: 123
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '查询失败',
+   *  }
+   */
+  async getLucyNum (req, res, next) {
+    let level = req.query.level
+    let username = req.user.username
+    try {
+      if (!level) {
+        throw new Error('轮次不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let awardInfo = await AwardModel.find({'awardList.level': {$eq: level}}, {'awardList.$': 1})
+    if (awardInfo && awardInfo.length > 0) {
+      let luckyNumList = awardInfo[0].awardList[0].luckyNumList
+      let luckyLength = luckyNumList.length
+      let obj = {
+        username,
+        luckyNum: luckyLength + 1,
+        createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss")
+      }
+      luckyNumList.push(obj)
+      let info = await AwardModel.findOneAndUpdate({'awardList.level': {$eq: level}}, {$set: {'awardList.0.luckyNumList': luckyNumList}})
+      if (info) {
+        res.json({
+          status: 200,
+          message: '更新数据成功',
+          data: luckyLength + 1
+        })
+      } else {
+        next({
+          status: 200,
+          message: '更新数据失败'
+        })
+      }
+    } else {
+      next({
+        status: 0,
+        message: '查询数据失败'
+      })
+    }
+  }
 }
 
 export default new Award()

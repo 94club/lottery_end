@@ -9,7 +9,7 @@
   isOpen: {type: Boolean, default: false}, // 奖项是否开启
   awardList: [
     {
-      level: String,
+      level: String, // 某个奖项的标识
       des: String,
       updateTime: String,
       isLotteryOver: {type: Boolean, default: false}, // 抽奖结束，表示不能抽奖
