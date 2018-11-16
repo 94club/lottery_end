@@ -243,6 +243,7 @@ class Award extends BaseComponent{
   async getLucyNum (req, res, next) {
     let level = req.query.level
     let username = req.user.username
+    let lang = req.query.lang
     try {
       if (!level) {
         throw new Error('轮次不能为空')
@@ -260,7 +261,8 @@ class Award extends BaseComponent{
       let luckyLength = luckyNumList.length
       let obj = {
         username,
-        luckyNum: luckyLength + 1,
+        lang,
+        luckyNum: luckyLength,
         createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss")
       }
       luckyNumList.push(obj)
@@ -284,6 +286,7 @@ class Award extends BaseComponent{
       })
     }
   }
+
 }
 
 export default new Award()

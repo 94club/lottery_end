@@ -18,6 +18,7 @@
         {
           luckyNum: Number,
           username: String,
+          lang: String,
           createTime: String,
         }
       ],

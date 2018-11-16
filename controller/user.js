@@ -15,6 +15,7 @@ class User {
     this.logout = this.logout.bind(this)
     this.remainTime = this.remainTime.bind(this)
     this.openLottery = this.openLottery.bind(this)
+    this.closeLevelLottery = this.closeLevelLottery.bind(this)
     // this.getResultByUser = this.getResultByUser.bind(this)
     // this.saveRedeemNum = this.saveRedeemNum.bind(this)
     // this.getLuckyNum = this.getLuckyNum.bind(this)
@@ -307,6 +308,58 @@ class User {
     }
   }
 
+  /**
+   *
+   * @api {get} /user/closeLevelLottery  关闭某一轮抽奖
+   * @apiName 关闭某一轮抽奖
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 关闭某一轮抽奖
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '操作成功'
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '操作失败',
+   *  }
+   */
+  async closeLevelLottery (req, res, next) {
+    let obj = req.body
+    let level = req.body.level
+    try {
+      if (!level) {
+        throw new Error('轮次不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await AwardModel.findOneAndUpdate({'awardList.level': {$eq: level}}, {$set: {'awardList.0': obj}})
+    if (info) {
+      res.json({
+        status: 200,
+        message: '更新数据成功'
+      })
+    } else {
+      next({
+        status: 200,
+        message: '更新数据失败'
+      })
+    }
+  }
 }
 
 export default new User()
