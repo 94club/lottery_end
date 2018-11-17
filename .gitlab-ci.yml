@@ -1,0 +1,29 @@
+stages:
+    - branch_deploy
+    - master_deploy
+cache:
+    paths:
+     - node_modules/
+job1:
+    stage: branch_deploy
+    except:
+        - master
+    tags:
+        - lottery_dev_tag
+    script:
+        - cd /data/choujiang_end
+        - git clone git@192.168.1.45:mobile/lottery_end.git
+        - yarn install
+        - yarn run pro
+job2:
+    stage: master_deploy
+    only:
+        - master
+    when: manual
+    tags:
+        - lottery_end_master_tag
+    script:
+        - cd /data/choujiang_end
+        - git clone git@192.168.1.45:mobile/lottery_end.git
+        - yarn install
+        - yarn run pro
