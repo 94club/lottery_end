@@ -13,6 +13,7 @@ job1:
     script:
         - cd /data/
         - git clone git@192.168.1.45:mobile/lottery_end.git
+        - cd lottery_end
         - yarn install
         - yarn run pro
 job2:
@@ -25,5 +26,6 @@ job2:
     script:
         - cd /data/
         - git clone git@192.168.1.45:mobile/lottery_end.git
+        - cd lottery_end
         - yarn install
         - yarn run pro
