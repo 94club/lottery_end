@@ -12,7 +12,7 @@ job1:
         - lottery_dev_tag
     script:
         - cd /data/
-        - if [! -d lottery_end ] ;then git clone git@192.168.1.45:mobile/lottery_end.git fi
+        - if [! -d "lottery_end" ] ;then git clone git@192.168.1.45:mobile/lottery_end.git fi
         - cd lottery_end
         - yarn install
         - yarn run dev
