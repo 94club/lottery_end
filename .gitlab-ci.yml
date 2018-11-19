@@ -19,7 +19,7 @@ job1:
         - git pull
         - fi
         - yarn install
-        - yarn run pao
+        - yarn run pro
 job2:
     stage: master_deploy
     only:
@@ -36,4 +36,4 @@ job2:
         - git pull
         - fi
         - yarn install
-        - yarn run pao
+        - yarn run pro
