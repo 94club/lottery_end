@@ -13,6 +13,7 @@ class Award extends BaseComponent{
     this.addAward = this.addAward.bind(this)
     this.getAwardItemStatus = this.getAwardItemStatus.bind(this)
     this.getLucyNum = this.getLucyNum.bind(this)
+    this.getAwardItem = this.getAwardItem.bind(this)
   }
 
   /**
@@ -114,7 +115,7 @@ class Award extends BaseComponent{
         for (let i = 0; i < amount; i++) {
           let obj = {
             level: (length + 1) + '-' + (i + 1),
-            des: '第' + (i + 1) + '轮',
+            des: awardName + '第' + (i + 1) + '轮',
             isOver: false,
           }
           addAwardList.push(obj)
@@ -151,11 +152,11 @@ class Award extends BaseComponent{
   
   /**
    *
-   * @api {get} /award/awardsAdd  添加奖项
-   * @apiName 添加奖项
+   * @api {get} /award/isLotteryOver  添加奖项的状态
+   * @apiName 添加奖项的状态
    * @apiGroup admin
    * @apiVersion 1.0.0
-   * @apiDescription 添加奖项
+   * @apiDescription 添加奖项的状态
    *
    * @apiSuccess {String} status 结果码
    * @apiSuccess {String} message 消息说明
@@ -164,7 +165,8 @@ class Award extends BaseComponent{
    *  HTTP/1.1 200 OK
    * {
    *   status: 200,
-   *   message: '查询成功'
+   *   message: '查询成功',
+   *   data: true
    * }
    *
    *  @apiErrorExample {json} Error-Response:
@@ -177,8 +179,6 @@ class Award extends BaseComponent{
   async getAwardItemStatus (req, res, next) {
     let type = req.query.type
     let level = req.query.level
-    console.log(type)
-    console.log(level)
     try {
       if (!type) {
         throw new Error('类型不能为空')
@@ -205,6 +205,62 @@ class Award extends BaseComponent{
         status: 200,
         message: '查询数据成功',
         data: status
+      })
+    } else {
+      next({
+        status: 0,
+        message: '查询数据失败'
+      })
+    }
+  }
+
+  
+
+  /**
+   *
+   * @api {get} /award/getAwardItem  获取某个奖项
+   * @apiName 获取某个奖项
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 获取某个奖项
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '查询成功',
+   *   data: true
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '查询失败',
+   *  }
+   */
+  async getAwardItem (req, res, next) {
+    let level = req.query.level
+    try {
+      if (!level) {
+        throw new Error('轮次不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let awardInfo = await AwardModel.find({'awardList.level': {$eq: level}})
+    if (awardInfo && awardInfo.length > 0) {
+      res.json({
+        status: 200,
+        message: '查询数据成功',
+        data: awardInfo[0]
       })
     } else {
       next({
@@ -262,7 +318,7 @@ class Award extends BaseComponent{
       let obj = {
         username,
         lang,
-        luckyNum: luckyLength,
+        luckyNum: luckyLength + 1,
         createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss")
       }
       luckyNumList.push(obj)

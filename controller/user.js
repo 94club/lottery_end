@@ -9,13 +9,14 @@ import redisManager from '../config/redis'
 
 
 class User {
-  constructor () {
+  constructor() {
     this.login = this.login.bind(this)
     this.getUserInfo = this.getUserInfo.bind(this)
     this.logout = this.logout.bind(this)
     this.remainTime = this.remainTime.bind(this)
     this.openLottery = this.openLottery.bind(this)
     this.closeLevelLottery = this.closeLevelLottery.bind(this)
+    this.setAwardUser = this.setAwardUser.bind(this)
     // this.getResultByUser = this.getResultByUser.bind(this)
     // this.saveRedeemNum = this.saveRedeemNum.bind(this)
     // this.getLuckyNum = this.getLuckyNum.bind(this)
@@ -52,7 +53,7 @@ class User {
    *   message: '查询失败',
    *  }
    */
-  async login (req, res, next) {
+  async login(req, res, next) {
     let role = 0 // 0代表普通用户 1代表管理员
     let username = req.body.username
     let lang = req.body.lang
@@ -74,7 +75,9 @@ class User {
       role = 1
     }
     // 先查一遍看看是否存在
-    let user = await UserModel.findOne({username})
+    let user = await UserModel.findOne({
+      username
+    })
     let token = jsonwebtoken.sign(tokenObj, constant.secretKey)
     if (user) {
       // 用户已存在 去登录
@@ -154,8 +157,13 @@ class User {
    *   message: '查询失败',
    *  }
    */
-  async getUserInfo (req, res, next) {
-    let userInfo = await UserModel.findOne({username: req.user.username}, {'_id': 0, '__v': 0})
+  async getUserInfo(req, res, next) {
+    let userInfo = await UserModel.findOne({
+      username: req.user.username
+    }, {
+      '_id': 0,
+      '__v': 0
+    })
     if (userInfo) {
       res.json({
         status: 200,
@@ -194,8 +202,8 @@ class User {
    *   status: 0,
    *   message: '登出失败',
    *  }
-   */  
-  async logout (req, res, next) {
+   */
+  async logout(req, res, next) {
     // 清除redis中的token
     res.json({
       status: 200,
@@ -229,7 +237,7 @@ class User {
    *   message: '查询失败',
    *  }
    */
-  async remainTime (req, res) {
+  async remainTime(req, res) {
     let currentTime = new Date().getTime()
     let prepareTime = new Date('2019', '0', '17', '18').getTime()
     let endTime = new Date('2019', '0', '17', '24').getTime()
@@ -292,9 +300,15 @@ class User {
    *   message: '更新失败',
    *  }
    */
-  async openLottery (req, res ,next) {
+  async openLottery(req, res, next) {
     let awardName = req.body.awardName
-    let awardItem = await AwardModel.findOneAndUpdate({awardName}, {$set: {'isOpen': true}})
+    let awardItem = await AwardModel.findOneAndUpdate({
+      awardName
+    }, {
+      $set: {
+        'isOpen': true
+      }
+    })
     if (awardItem) {
       res.json({
         status: 200,
@@ -333,8 +347,7 @@ class User {
    *   message: '操作失败',
    *  }
    */
-  async closeLevelLottery (req, res, next) {
-    let obj = req.body
+  async closeLevelLottery(req, res, next) {
     let level = req.body.level
     try {
       if (!level) {
@@ -347,7 +360,57 @@ class User {
       })
       return
     }
-    let info = await AwardModel.findOneAndUpdate({'awardList.level': {$eq: level}}, {$set: {'awardList.0': obj}})
+    let info = await AwardModel.findOneAndUpdate({
+      'awardList.level': {
+        $eq: level
+      }
+    }, {
+      $set: {
+        'awardList.$.isLotteryOver': true
+      }
+    })
+    if (info) {
+      res.json({
+        status: 200,
+        message: '更新数据成功'
+      })
+    } else {
+      next({
+        status: 200,
+        message: '更新数据失败'
+      })
+    }
+  }
+
+  async setAwardUser(req, res, next) {
+    let {
+      level,
+      username,
+      luckyNum
+    } = req.body
+    try {
+      if (!level) {
+        throw new Error('轮次不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await AwardModel.findOneAndUpdate({
+      'awardList.level': {
+        $eq: level
+      }
+    }, {
+      $set: {
+        'awardList.$.owner': username,
+        'awardList.$.redeemNum': luckyNum,
+        'awardList.$.updateTime': dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
+        'awardList.$.isOpenResultOver': true
+      }
+    })
     if (info) {
       res.json({
         status: 200,

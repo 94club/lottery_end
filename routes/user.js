@@ -8,4 +8,5 @@ router.post('/logout', User.logout)
 router.get('/remainTime', User.remainTime)
 router.post('/lotteryOpen', User.openLottery)
 router.post('/closeLevelLottery', User.closeLevelLottery)
+router.post('/setAwardUser', User.setAwardUser)
 module.exports = router
