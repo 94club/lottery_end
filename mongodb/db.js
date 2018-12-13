@@ -8,9 +8,9 @@ const conOptions = {
   useNewUrlParser: true
 }
 if (process.env.NODE_ENV === 'dev') {
-  mongoose.connect('mongodb://alistar:alistar2018@localhost:27017/lottery_test', conOptions)
+  mongoose.connect('mongodb://alistar2018:alistar2018@localhost:27017/lottery_test', conOptions)
 } else {
-  mongoose.connect('mongodb://alistar:alistar2018@localhost:27017/lottery_test', conOptions)
+  mongoose.connect('mongodb://alistar2018:alistar2018@localhost:27017/lottery_test', conOptions)
 }
 mongoose.Promise = global.Promise
 
