@@ -79,52 +79,58 @@ class User extends BaseComponent{
     let token = jsonwebtoken.sign(tokenObj, constant.secretKey)
     if (user) {
       // 用户已存在 去登录
-      let userInfo = await UserModel.findOne({
-        username
-      })
-      if (userInfo) {
-        redisManager.set(token, username)
-        res.json({
-          status: 200,
-          message: '登录成功',
-          data: token
-        })
-      } else {
-        next({
-          status: 0,
-          message: '登录失败,用户名错误'
-        })
+      try {
+        let userInfo = await UserModel.findOne({username})
+        if (userInfo) {
+          redisManager.set(token, username)
+          res.json({
+            status: 200,
+            message: '登录成功',
+            data: token
+          })
+        } else {
+          next({
+            status: 0,
+            message: '登录失败,用户名错误'
+          })
+        }
+      } catch (error) {
+        
       }
     } else {
-      let arr = await UserModel.find()
-      let newUser = {
-        username,
-        lang,
-        role,
-        createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
-        id: arr.length + 1
-      }
       try {
-        UserModel.create(newUser, (err) => {
-          if (err) {
-            next({
-              status: 0,
-              message: '注册失败'
-            })
-          } else {
-            redisManager.set(token, username)
-            res.json({
-              status: 200,
-              message: '注册成功',
-              data: token
-            })
-          }
-        })
-      } catch (err) {
-        next({
-          status: 0,
-          message: err.message
-        })
+        let arr = await UserModel.find()
+        let newUser = {
+          username,
+          lang,
+          role,
+          createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
+          id: arr.length + 1
+        }
+        try {
+          UserModel.create(newUser, (err) => {
+            if (err) {
+              next({
+                status: 0,
+                message: '注册失败'
+              })
+            } else {
+              redisManager.set(token, username)
+              res.json({
+                status: 200,
+                message: '注册成功',
+                data: token
+              })
+            }
+          })
+        } catch (err) {
+          next({
+            status: 0,
+            message: err.message
+          })
+        }
+      } catch (error) {
+        
       }
     }
   }
