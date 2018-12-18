@@ -6,7 +6,7 @@ import User from '../controller/user'
 router.get('/info', User.getUserInfo)
 router.post('/logout', User.logout)
 router.get('/remainTime', User.remainTime)
-router.post('/lotteryOpen', User.openLottery)
-router.post('/closeLevelLottery', User.closeLevelLottery)
-router.post('/setAwardUser', User.setAwardUser)
+router.post('/updateUserInfo', User.updateUserInfo)
+router.post('/uploadAvatar', User.uploadAvatar)
+router.get('/getAllUser', User.getAllUser)
 module.exports = router

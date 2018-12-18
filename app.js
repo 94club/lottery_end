@@ -33,7 +33,7 @@ app.set('view engine', 'ejs')
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false }))// for parsing application/x-www-form-urlencoded
-app.use(express.static(path.join('public')))
+
 
 
 app.use(function (req, res, next) {
