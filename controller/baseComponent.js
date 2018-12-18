@@ -11,6 +11,7 @@ export default class BaseComponent {
 	async getImgPath (files) {
     return new Promise((resolve, reject) => {
       const hashName = (new Date().getTime() + Math.ceil(Math.random()*10000)).toString(16)
+      // imgFile是前端formdata append file时的key
       const extname = path.extname(files.imgFile.name)
       if (!['.jpg', '.jpeg', '.png'].includes(extname)) {
         fs.unlinkSync(files.imgFile.path)

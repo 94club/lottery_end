@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import path from 'path'
-import logger from './log'
+// import logger from './log'
 import chalk from 'chalk'
 import db from './mongodb/db.js' // 引入进来， 其内部自己调用
 import router from './routes/index'
@@ -22,7 +22,7 @@ app.all('*', (req, res, next) => {
 	}
 })
 
-logger.initRequestLogger(app) // 日志系统
+// logger.initRequestLogger(app) // 日志系统
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -33,7 +33,7 @@ app.set('view engine', 'ejs')
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false }))// for parsing application/x-www-form-urlencoded
-app.use(express.static(path.join('public')))
+
 
 
 app.use(function (req, res, next) {
