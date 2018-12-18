@@ -17,6 +17,7 @@ job1:
         - else
         - cd lottery_end
         - git pull
+        - npm run pro
         - fi
 job2:
     stage: master_deploy
@@ -32,4 +33,5 @@ job2:
         - else
         - cd lottery_end
         - git pull
+        - npm run pro
         - fi
