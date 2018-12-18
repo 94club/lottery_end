@@ -14,10 +14,9 @@ job1:
         - cd /data
         - if [ ! -d "lottery_end" ] ; then 
         - git clone git@192.168.1.45:mobile/lottery_end.git
-        - else
+        - fi
         - cd lottery_end
         - git pull
-        - fi
         - yarn install
         - npm run pro
 job2:
@@ -31,9 +30,8 @@ job2:
         - cd /data
         - if [ ! -d "lottery_end" ] ; then 
         - git clone git@192.168.1.45:mobile/lottery_end.git
-        - else
+        - fi
         - cd lottery_end
         - git pull
-        - fi
         - yarn install
         - npm run pro
