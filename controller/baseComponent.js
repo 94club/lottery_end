@@ -8,7 +8,7 @@ export default class BaseComponent {
 		this.getImgPath = this.getImgPath.bind(this)
 	}
 	
-	async getImgPath (files) {
+	async getImgPath (files, res) {
     return new Promise((resolve, reject) => {
       const hashName = (new Date().getTime() + Math.ceil(Math.random()*10000)).toString(16)
       // imgFile是前端formdata append file时的key
@@ -19,7 +19,6 @@ export default class BaseComponent {
           status: 0,
           message: '文件格式错误'
         })
-        reject('上传失败')
         return 
       }
       const fullName = hashName + extname

@@ -323,7 +323,7 @@ class User extends BaseComponent{
         return
       }
       // 获取图片链接
-      let imgPath = await this.getImgPath(files)
+      let imgPath = await this.getImgPath(files, res)
       if (imgPath) {
         imgPath = '/public/img/' + imgPath
         let info = await UserModel.findOneAndUpdate({username}, {$set:{avatar: imgPath}})
@@ -384,7 +384,7 @@ class User extends BaseComponent{
         return
       }
       // 获取图片链接
-      let imgPath = await this.getImgPath(files)
+      let imgPath = await this.getImgPath(files, res)
       if (imgPath) {
         imgPath = '/public/img/' + imgPath
         let info = await FashionModel.findOneAndUpdate({id}, {$set:{"imgSrc": imgPath}})
