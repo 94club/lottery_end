@@ -1,7 +1,7 @@
 'user stirct'
- import mongoose from 'mongoose'
- const Schema = mongoose.Schema
- const awardSchema = new Schema({
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
+const awardSchema = new Schema({
   awardName: String, // 奖项名字
   awardIndex: String, // 奖项的索引，从0开始
   des: String, // 奖项的描述
@@ -12,7 +12,7 @@
   overTime: String, // 开奖结束时间
   owner: String,
   redeemNum: Number,
-	lotteryJoinList: {type: Array, default: []},
+  lotteryJoinList: {type: Array, default: []},
   luckyNumList: [
     {
       luckyNum: Number, // 从1开始
@@ -21,6 +21,6 @@
       createTime: String,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
   ]
- })
- const Award = mongoose.model('Award', awardSchema)
- export default Award
+})
+const Award = mongoose.model('Award', awardSchema)
+export default Award

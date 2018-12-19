@@ -1,7 +1,8 @@
 'use strict'
 
 import UserModel from '../models/user'
-import AwardModel from '../models/award'
+import ActivityModel from '../models/activity'
+import FashionModel from '../models/fashion'
 import dateAndTime from 'date-and-time'
 import constant from '../constant/constant'
 import jsonwebtoken from 'jsonwebtoken'
@@ -21,6 +22,9 @@ class User extends BaseComponent{
     this.remainTime = this.remainTime.bind(this)
     this.uploadAvatar = this.uploadAvatar.bind(this)
     this.getAllUser = this.getAllUser.bind(this)
+    this.getFashionImgList = this.getFashionImgList.bind(this)
+    this.uploadFashionImg = this.uploadFashionImg.bind(this)
+    this.commitComment = this.commitComment.bind(this)
   }
 
   /**
@@ -322,7 +326,7 @@ class User extends BaseComponent{
       let imgPath = await this.getImgPath(files)
       if (imgPath) {
         imgPath = '/public/img/' + imgPath
-        let info = await UserModel.findOneAndUpdate({username},{$set:{avatar: imgPath}})
+        let info = await UserModel.findOneAndUpdate({username}, {$set:{avatar: imgPath}})
         if (info) {
           res.json({
             status: 200,
@@ -363,6 +367,143 @@ class User extends BaseComponent{
       next({
         status: 0,
         message: '获取数据失败'
+      })
+    }
+  }
+
+  async uploadFashionImg (req, res, next) {
+    const form = new formidable.IncomingForm()
+    form.parse(req, async (err, fields, files) => {
+      console.log(fields)
+      let id = fields.id
+      if (err) {
+        next({
+          status: 0,
+          message: '表单信息错误'
+        })
+        return
+      }
+      // 获取图片链接
+      let imgPath = await this.getImgPath(files)
+      if (imgPath) {
+        imgPath = '/public/img/' + imgPath
+        let info = await FashionModel.findOneAndUpdate({id}, {$set:{"imgSrc": imgPath}})
+        if (info) {
+          res.json({
+            status: 200,
+            message: '更新成功'
+          })
+        } else {
+          next({
+            status: 0,
+            message: '更新错误'
+          })
+        }
+      } else {
+        next({
+          status: 0,
+          message: '头像更新错误2'
+        })
+      }
+      // try {
+      // } catch (err) {
+      //   next({
+      //     status: 0,
+      //     message: '头像更新错误222'
+      //   })
+      // }
+    })
+  }
+
+  async fashionImgAdd (req, res, next) {
+    let id = req.body.id
+    try {
+      if (!id) {
+        throw new Error('序号不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let imgList = await FashionModel.find({})
+    if (imgList && imgList.length < id) {
+      let newArr =[]
+      for (let i = 0; i < id; i++) {
+        newArr.push({id: i + 1, imgSrc: ''})
+      }
+      FashionModel.create(newArr, (err) => {
+        if (err) {
+          next({
+            status: 0,
+            message: '添加失败'
+          })
+        } else {
+          res.json({
+            status: 200,
+            message: '添加成功'
+          })
+        }
+      })
+    } else {
+      next({
+        status: 0,
+        message: '序号有误'
+      })
+    }
+  }
+
+  async getFashionImgList (req, res, next) {
+    let info = await FashionModel.find({}, {'_id': 0, '__v': 0})
+    if (info) {
+      res.json({
+        status: 200,
+        message: '查询成功',
+        data: info
+      })
+    } else {
+      next({
+        status: 0,
+        message: '查询失败'
+      })
+    }
+  }
+
+  async commitComment (req, res, next) {
+    const {id, score} = req.body
+    let username = req.user.username
+    try {
+      if (!id) {
+        throw new Error('序号不能为空')
+      } else if (score <= 0) {
+        throw new Error('评分要大于0')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await FashionModel.findOne({id}, {'_id': 0})
+    let newArr = []
+    console.log(info)
+    if (info) {
+      newArr.concat(info.gradeDetailList)
+    }
+    newArr.push({username, score})
+    let fashionInfo = await FashionModel.findOneAndUpdate({id}, {$set: {"gradeDetailList": newArr}})
+    if (fashionInfo) {
+      res.json({
+        status: 200,
+        message: '更新成功'
+      })
+    } else {
+      next({
+        status: 0,
+        message: '更新失败'
       })
     }
   }
