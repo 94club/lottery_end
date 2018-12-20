@@ -428,14 +428,14 @@ class User extends BaseComponent{
       })
       return
     }
-    let info = await FashionModel.findOne({id})
-    if (info) {
-      res.json({
-        status: 0,
-        message: '记录已存在'
-      })
-      return
-    }
+    // let info = await FashionModel.findOne({id})
+    // if (info) {
+    //   res.json({
+    //     status: 0,
+    //     message: '记录已存在'
+    //   })
+    //   return
+    // }
     let arr = []
     arr.push({id, imgSrc: ''})
     FashionModel.create(arr, (err) => {
