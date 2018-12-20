@@ -34,4 +34,5 @@ job2:
         - cd lottery_end
         - git pull
         - yarn install
+        - npm run start
         - npm run reload
