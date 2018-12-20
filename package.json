@@ -8,6 +8,7 @@
     "pro": "cross-env NODE_ENV=production  pm2 start -f index.js --node-args='--harmony'",
     "stop": "cross-env NODE_ENV=production  pm2 stop -f index.js --node-args='--harmony'",
     "restart": "cross-env NODE_ENV=production  pm2 restart -f index.js --node-args='--harmony'",
+    "reload": "cross-env NODE_ENV=production  pm2 reload -f index.js --node-args='--harmony'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
