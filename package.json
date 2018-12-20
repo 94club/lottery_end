@@ -5,10 +5,10 @@
   "scripts": {
     "start": "node index.js",
     "dev": "cross-env NODE_ENV=dev nodemon --harmony index.js",
-    "pro": "cross-env NODE_ENV=production  pm2 start -f index.js --node-args='--harmony' --watch",
-    "stop": "cross-env NODE_ENV=production  pm2 stop -f index.js --node-args='--harmony'",
-    "restart": "cross-env NODE_ENV=production  pm2 restart -f index.js --node-args='--harmony'",
-    "reload": "cross-env NODE_ENV=production  pm2 reload -f index.js --node-args='--harmony'",
+    "pro": "cross-env NODE_ENV=production  pm2 start -f index.js --watch --node-args='--harmony'",
+    "stop": "cross-env NODE_ENV=production  pm2 stop -f index.js  --watch --node-args='--harmony'",
+    "restart": "cross-env NODE_ENV=production  pm2 restart -f index.js --watch --node-args='--harmony'",
+    "reload": "cross-env NODE_ENV=production  pm2 reload -f index.js --watch --node-args='--harmony'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
