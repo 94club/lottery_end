@@ -18,7 +18,7 @@ job1:
         - cd lottery_end
         - git pull
         - yarn install
-        - npm run reload
+        - npm run pro
 job2:
     stage: master_deploy
     only:
@@ -35,4 +35,3 @@ job2:
         - git pull
         - yarn install
         - npm run pro
-        - npm run reload
