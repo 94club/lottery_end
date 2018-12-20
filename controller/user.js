@@ -374,7 +374,6 @@ class User extends BaseComponent{
   async uploadFashionImg (req, res, next) {
     const form = new formidable.IncomingForm()
     form.parse(req, async (err, fields, files) => {
-      console.log(fields)
       let id = fields.id
       if (err) {
         next({
@@ -387,6 +386,7 @@ class User extends BaseComponent{
       let imgPath = await this.getImgPath(files, res)
       if (imgPath) {
         imgPath = '/public/img/' + imgPath
+        console.log(imgPath)
         let info = await FashionModel.findOneAndUpdate({id}, {$set:{"imgSrc": imgPath}})
         if (info) {
           res.json({
@@ -428,31 +428,20 @@ class User extends BaseComponent{
       })
       return
     }
-    let imgList = await FashionModel.find({})
-    if (imgList && imgList.length < id) {
-      let newArr =[]
-      for (let i = 0; i < id; i++) {
-        newArr.push({id: i + 1, imgSrc: ''})
+    FashionModel.create([{id, imgSrc: ''}], (err) => {
+      if (err) {
+        next({
+          status: 0,
+          message: '添加失败'
+        })
+      } else {
+        res.json({
+          status: 200,
+          message: '添加成功'
+        })
       }
-      FashionModel.create(newArr, (err) => {
-        if (err) {
-          next({
-            status: 0,
-            message: '添加失败'
-          })
-        } else {
-          res.json({
-            status: 200,
-            message: '添加成功'
-          })
-        }
-      })
-    } else {
-      next({
-        status: 0,
-        message: '序号有误'
-      })
-    }
+    })
+
   }
 
   async getFashionImgList (req, res, next) {
