@@ -18,26 +18,32 @@ class Award extends BaseComponent{
   }
 
 /**
+ *
  * @api {get} /award/getAwardsList  获取奖项列表
  * @apiName 获取奖项列表
- * @apiGroup User
+ * @apiGroup user
  * @apiVersion 1.0.0
  * @apiDescription 获取奖项列表
  *
- * @apiParam {Number} id Users unique ID.
- *
  * @apiSuccess {String} status 结果码
- * @apiSuccess {String} message 消息说明.
+ * @apiSuccess {String} message 消息说明
+ * 
+ * @apiSuccessExample {json}Success-Response:
+ *  HTTP/1.1 200 OK
+ * {
+ *   status: 200,
+ *   message: '查询成功',
+ *   data: []
+ * }
  *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "firstname": "John",
- *       "lastname": "Doe"
- *     }
- *
- * @apiUse UserNotFoundError
+ *  @apiErrorExample {json} Error-Response:
+ *  HTTP/1.1 200
+ *  {
+ *   status: 0,
+ *   message: '查询失败',
+ *  }
  */
+
 
   async getAwardsList (req, res, next) {
     let awardList = await AwardModel.find({}, {'_id': 0, '__v': 0})
