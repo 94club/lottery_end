@@ -43,6 +43,7 @@ class Award extends BaseComponent{
    *   message: '查询失败',
    *  }
    */
+
   async getAwardsList (req, res, next) {
     let awardList = await AwardModel.find({}, {'_id': 0, '__v': 0})
     if (awardList) {
@@ -85,6 +86,7 @@ class Award extends BaseComponent{
    *   message: '更新失败',
    *  }
    */  
+
   async updateAwardInfo (req, res, next) {
     const {awardIndex, isOpen, isLotteryOver, isOpenResultOver, owner, redeemNum} = req.body
     try {
@@ -145,10 +147,9 @@ class Award extends BaseComponent{
    * 
    * @apiSuccessExample {json}Success-Response:
    *  HTTP/1.1 200 OK
-   * {
+  * {
    *   status: 200,
-   *   message: '参与成功',
-   *   data: []
+   *   message: '更新成功'
    * }
    *
    *  @apiErrorExample {json} Error-Response:
@@ -157,7 +158,8 @@ class Award extends BaseComponent{
    *   status: 0,
    *   message: '参与失败',
    *  }
-   */  
+   */
+
   async joinAward (req, res, next) {
     let awardIndex = req.body.awardIndex
     let username = req.user.username
@@ -228,6 +230,7 @@ class Award extends BaseComponent{
    *   message: '添加失败',
    *  }
    */
+
   async addAward (req, res, next) {
     const {awardName, amount, des} = req.body
     try {
@@ -322,6 +325,7 @@ class Award extends BaseComponent{
    *   message: '查询失败',
    *  }
    */
+
   async getAwardItem (req, res, next) {
     let awardIndex = req.query.awardIndex
     try {
