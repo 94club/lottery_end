@@ -34,4 +34,4 @@ job2:
         - cd lottery_end
         - git pull
         - yarn install
-        - npm run pro
+       # - npm run pro
