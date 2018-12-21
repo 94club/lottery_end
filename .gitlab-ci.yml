@@ -23,7 +23,7 @@ job2:
     stage: master_deploy
     only:
         - master
-    when: manual
+    # when: manual
     tags:
         - lottery_end_master_tag
     script:
