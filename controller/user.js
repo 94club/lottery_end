@@ -319,7 +319,57 @@ class User extends BaseComponent{
     })
   }
 
+     /**
+   *
+   * @api {post} /user/uploadFashionImg  根据id更新服装图片
+   * @apiName 根据id更新服装图片
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 根据id更新服装图片
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功',
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
 
+  /**
+   *
+   * @api {post} /user/fashionImgAdd  添加最佳服装
+   * @apiName 添加最佳服装
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 添加最佳服装
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '添加成功',
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '添加失败原因',
+   *  }
+   */
   async fashionImgAdd (req, res, next) {
     let id = req.body.id
     try {
@@ -359,7 +409,32 @@ class User extends BaseComponent{
 
   }
 
-  
+  /**
+   *
+   * @api {get} /user/getFashionImgList  获取所有最佳服装
+   * @apiName 获取所有最佳服装
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 获取所有最佳服装
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json} Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '获取成功',
+   *   data: []
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '获取失败原因',
+   *  }
+   */  
   async getFashionImgList (req, res, next) {
     let info = await FashionModel.find({}, {'_id': 0, '__v': 0})
     if (info) {
