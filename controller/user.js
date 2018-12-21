@@ -31,7 +31,7 @@ class User extends BaseComponent{
    *
    * @api {post} /api/login  登录
    * @apiName 登录
-   * @apiGroup admin
+   * @apiGroup api
    * @apiVersion 1.0.0
    * @apiDescription 用户登录
    *
@@ -145,7 +145,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/getUserInfo  用户信息
    * @apiName 用户信息
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 获取用户信息
    *
@@ -192,7 +192,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/logout  用户登出
    * @apiName 用户登出
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 用户登出
    *
@@ -226,7 +226,7 @@ class User extends BaseComponent{
    *
    * @api {get} /user/remainTime  离晚会开始剩余时间
    * @apiName 离晚会开始剩余时间
-   * @apiGroup admin
+   * @apiGroup api
    * @apiVersion 1.0.0
    * @apiDescription 离晚会开始剩余时间
    *
@@ -289,7 +289,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/updateUserInfo  更新用户信息
    * @apiName 更新用户信息
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 更新用户信息
    *
@@ -343,7 +343,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/uploadAvatar  更新用户图像
    * @apiName 更新用户图像
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 更新用户图像
    *
@@ -415,7 +415,7 @@ class User extends BaseComponent{
    *
    * @api {get} /user/getAllUser  获取所有用户
    * @apiName 获取所有用户
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 获取所有用户
    *
@@ -632,7 +632,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/commitComment  提交评分
    * @apiName 提交评分
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 提交评分
    *
