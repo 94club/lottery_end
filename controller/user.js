@@ -44,15 +44,17 @@ class User extends BaseComponent{
    *  HTTP/1.1 200 OK
    * {
    *   status: 200,
-   *   message: 'success',
-   *   data: {}
+   *   message: '登录/注册成功',
+   *   data: {
+   *     token: token
+   *   }
    * }
    *
    *  @apiErrorExample {json} Error-Response:
    *  HTTP/1.1 200
    *  {
    *   status: 0,
-   *   message: '查询失败',
+   *   message: '失败原因',
    *  }
    */
   async login(req, res, next) {
@@ -141,7 +143,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/info  用户信息
+   * @api {get} /user/getUserInfo  用户信息
    * @apiName 用户信息
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -155,7 +157,7 @@ class User extends BaseComponent{
    * {
    *   status: 200,
    *   message: 'success',
-   *   data: {"avatar":"/public/img/avatar.jpg","hadPrize":false,"username":"94club","role":0,"createTime":"2018/11/10 14:24:25","id":1}}
+   *   data: {"avatar":"/public/img/avatar.jpg","hadPrize":false,"username":"alistar-wang","role":0,"createTime":"2018/11/10 14:24:25","id":1}}
    * }
    *
    *  @apiErrorExample {json} Error-Response:
@@ -283,6 +285,31 @@ class User extends BaseComponent{
     }
   }
 
+  /**
+   *
+   * @api {get} /user/updateUserInfo  更新用户信息
+   * @apiName 更新用户信息
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 更新用户信息
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功'
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
   async updateUserInfo (req, res, next) {
     const {hadPrize, prizeName} = req.body
     try {
@@ -311,6 +338,34 @@ class User extends BaseComponent{
     }
   }
 
+  /**
+   *
+   * @api {get} /user/uploadAvatar  更新用户图像
+   * @apiName 更新用户图像
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 更新用户图像
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功',
+   *   data: {
+   *     imgPath: '/public/img/avatar.jpg'
+   *   }
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
   async uploadAvatar (req, res, next) {
     const form = new formidable.IncomingForm()
     let username = req.user.username
@@ -355,6 +410,32 @@ class User extends BaseComponent{
     })
   }
 
+  /**
+   *
+   * @api {get} /user/getAllUser  获取所有用户
+   * @apiName 获取所有用户
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 获取所有用户
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功',
+   *   data: [{"avatar":"/public/img/167c5b72dcb.jpg","hadPrize":false,"_id":"5c18a2a5bb5f3d1f0c994a21","username":"alistar-wang","lang":"cn","role":0,"createTime":"2018/12/18 15:32:53","id":1,"__v":0},{"avatar":"/public/img/avatar.jpg","hadPrize":false,"_id":"5c1a0c551527ab39f96293b0","username":"123eveb-admin456","lang":"cn","role":1,"createTime":"2018/12/19 17:16:05","id":2,"__v":0}]
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
   async getAllUser (req, res, next) {
     let info = await UserModel.find({})
     if (info) {
@@ -371,6 +452,31 @@ class User extends BaseComponent{
     }
   }
 
+  /**
+   *
+   * @api {get} /user/uploadFashionImg  根据id更新服装图片
+   * @apiName 根据id更新服装图片
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 根据id更新服装图片
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功',
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
   async uploadFashionImg (req, res, next) {
     const form = new formidable.IncomingForm()
     form.parse(req, async (err, fields, files) => {
@@ -415,6 +521,31 @@ class User extends BaseComponent{
     })
   }
 
+  /**
+   *
+   * @api {get} /user/fashionImgAdd  添加最佳服装
+   * @apiName 添加最佳服装
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 添加最佳服装
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '添加成功',
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '添加失败原因',
+   *  }
+   */
   async fashionImgAdd (req, res, next) {
     let id = req.body.id
     try {
@@ -454,6 +585,32 @@ class User extends BaseComponent{
 
   }
 
+  /**
+   *
+   * @api {get} /user/getFashionImgList  获取所有最佳服装
+   * @apiName 获取所有最佳服装
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 获取所有最佳服装
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '获取成功',
+   *   data: []
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '获取失败原因',
+   *  }
+   */  
   async getFashionImgList (req, res, next) {
     let info = await FashionModel.find({}, {'_id': 0, '__v': 0})
     if (info) {
@@ -470,6 +627,31 @@ class User extends BaseComponent{
     }
   }
 
+  /**
+   *
+   * @api {get} /user/commitComment  提交评分
+   * @apiName 提交评分
+   * @apiGroup user
+   * @apiVersion 1.0.0
+   * @apiDescription 提交评分
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '评论成功',
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '评论失败原因',
+   *  }
+   */  
   async commitComment (req, res, next) {
     const {id, score} = req.body
     let username = req.user.username
@@ -488,7 +670,6 @@ class User extends BaseComponent{
     }
     let info = await FashionModel.findOne({id}, {'_id': 0})
     let newArr = []
-    console.log(info)
     if (info) {
       newArr.concat(info.gradeDetailList)
     }
@@ -497,12 +678,12 @@ class User extends BaseComponent{
     if (fashionInfo) {
       res.json({
         status: 200,
-        message: '更新成功'
+        message: '评论成功'
       })
     } else {
       next({
         status: 0,
-        message: '更新失败'
+        message: '评论失败'
       })
     }
   }
