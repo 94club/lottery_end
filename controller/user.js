@@ -456,7 +456,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/uploadFashionImg  根据id更新服装图片
    * @apiName 根据id更新服装图片
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 根据id更新服装图片
    *
@@ -525,7 +525,7 @@ class User extends BaseComponent{
    *
    * @api {post} /user/fashionImgAdd  添加最佳服装
    * @apiName 添加最佳服装
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 添加最佳服装
    *

@@ -63,7 +63,7 @@ class Award extends BaseComponent{
    *
    * @api {post} /award/updateAwardInfo  根据索引更新某个奖项信息
    * @apiName 根据索引更新某个奖项信息
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 根据索引更新某个奖项信息
    *
@@ -300,7 +300,7 @@ class Award extends BaseComponent{
    *
    * @api {get} /award/getAwardItem  根据索引获取某个奖项详情
    * @apiName 根据索引获取某个奖项详情
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 根据索引获取某个奖项详情
    *
@@ -354,7 +354,7 @@ class Award extends BaseComponent{
    *
    * @api {get} /award/getLucyNum  获取幸运号码
    * @apiName 获取幸运号码
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 获取幸运号码
    *
