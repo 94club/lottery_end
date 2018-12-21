@@ -358,7 +358,7 @@ class Award extends BaseComponent{
    *
    * @api {get} /award/getLucyNum  获取幸运号码
    * @apiName 获取幸运号码
-   * @apiGroup admin
+   * @apiGroup user
    * @apiVersion 1.0.0
    * @apiDescription 获取幸运号码
    *
