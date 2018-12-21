@@ -143,7 +143,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/getUserInfo  用户信息
+   * @api {post} /user/getUserInfo  用户信息
    * @apiName 用户信息
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -190,7 +190,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/logout  用户登出
+   * @api {post} /user/logout  用户登出
    * @apiName 用户登出
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -287,7 +287,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/updateUserInfo  更新用户信息
+   * @api {post} /user/updateUserInfo  更新用户信息
    * @apiName 更新用户信息
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -340,7 +340,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/uploadAvatar  更新用户图像
+   * @api {post} /user/uploadAvatar  更新用户图像
    * @apiName 更新用户图像
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -454,7 +454,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/uploadFashionImg  根据id更新服装图片
+   * @api {post} /user/uploadFashionImg  根据id更新服装图片
    * @apiName 根据id更新服装图片
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -523,7 +523,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/fashionImgAdd  添加最佳服装
+   * @api {post} /user/fashionImgAdd  添加最佳服装
    * @apiName 添加最佳服装
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -629,7 +629,7 @@ class User extends BaseComponent{
 
   /**
    *
-   * @api {get} /user/commitComment  提交评分
+   * @api {post} /user/commitComment  提交评分
    * @apiName 提交评分
    * @apiGroup user
    * @apiVersion 1.0.0

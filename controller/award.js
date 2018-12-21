@@ -61,7 +61,7 @@ class Award extends BaseComponent{
 
   /**
    *
-   * @api {get} /award/updateAwardInfo  根据索引更新某个奖项信息
+   * @api {post} /award/updateAwardInfo  根据索引更新某个奖项信息
    * @apiName 根据索引更新某个奖项信息
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -134,7 +134,7 @@ class Award extends BaseComponent{
 
   /**
    *
-   * @api {get} /award/joinAward  参与抽奖
+   * @api {post} /award/joinAward  参与抽奖
    * @apiName 参与抽奖
    * @apiGroup user
    * @apiVersion 1.0.0
@@ -205,7 +205,7 @@ class Award extends BaseComponent{
 
   /**
    *
-   * @api {get} /award/awardsAdd  添加奖项
+   * @api {post} /award/awardsAdd  添加奖项
    * @apiName 添加奖项
    * @apiGroup admin
    * @apiVersion 1.0.0
