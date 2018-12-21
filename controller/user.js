@@ -596,7 +596,7 @@ class User extends BaseComponent{
    * @apiSuccess {String} status 结果码
    * @apiSuccess {String} message 消息说明
    * 
-   * @apiSuccessExample {json}Success-Response:
+   * @apiSuccessExample {json} Success-Response:
    *  HTTP/1.1 200 OK
    * {
    *   status: 200,
@@ -638,11 +638,12 @@ class User extends BaseComponent{
    * @apiSuccess {String} status 结果码
    * @apiSuccess {String} message 消息说明
    * 
-   * @apiSuccessExample {json}Success-Response:
+   * @apiSuccessExample {json} Success-Response:
    *  HTTP/1.1 200 OK
    * {
    *   status: 200,
    *   message: '评论成功',
+   *   data: []
    * }
    *
    *  @apiErrorExample {json} Error-Response:
@@ -651,7 +652,8 @@ class User extends BaseComponent{
    *   status: 0,
    *   message: '评论失败原因',
    *  }
-   */  
+   */
+ 
   async commitComment (req, res, next) {
     const {id, score} = req.body
     let username = req.user.username

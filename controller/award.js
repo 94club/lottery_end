@@ -72,7 +72,7 @@ class Award extends BaseComponent{
    * @apiSuccess {String} status 结果码
    * @apiSuccess {String} message 消息说明
    * 
-   * @apiSuccessExample {json}Success-Response:
+   * @apiSuccessExample {json} Success-Response:
    *  HTTP/1.1 200 OK
    * {
    *   status: 200,
