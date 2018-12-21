@@ -1,4 +1,4 @@
- /**
+  /**
    *
    * @api {get} /award/getAwardsList  获取奖项列表
    * @apiName 获取奖项列表
@@ -25,7 +25,7 @@
    *  }
    */
 
-    /**
+  /**
    *
    * @api {post} /award/updateAwardInfo  根据索引更新某个奖项信息
    * @apiName 根据索引更新某个奖项信息
