@@ -17,7 +17,32 @@ class Award extends BaseComponent{
     this.getAwardItem = this.getAwardItem.bind(this)
   }
 
-
+ /**
+ *
+ * @api {get} /award/getAwardsList  获取奖项列表
+ * @apiName 获取奖项列表
+ * @apiGroup admin
+ * @apiVersion 1.0.0
+ * @apiDescription 获取奖项列表
+ *
+ * @apiSuccess {String} status 结果码
+ * @apiSuccess {String} message 消息说明
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ * {
+ *   status: 200,
+ *   message: '查询成功',
+ *   data: []
+ * }
+ *
+ *  @apiErrorExample {json} Error-Response:
+ *  HTTP/1.1 200
+ *  {
+ *   status: 0,
+ *   message: '查询失败',
+ *  }
+ */
 
   async getAwardsList (req, res, next) {
     let awardList = await AwardModel.find({}, {'_id': 0, '__v': 0})
@@ -35,7 +60,32 @@ class Award extends BaseComponent{
     }
   }
 
-   
+  /**
+   *
+   * @api {post} /award/updateAwardInfo  根据索引更新某个奖项信息
+   * @apiName 根据索引更新某个奖项信息
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 根据索引更新某个奖项信息
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json} Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '更新成功',
+   *   data: []
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '更新失败',
+   *  }
+   */
 
   async updateAwardInfo (req, res, next) {
     const {awardIndex, isOpen, isLotteryOver, isOpenResultOver, owner, redeemNum} = req.body
@@ -84,7 +134,31 @@ class Award extends BaseComponent{
     
   }
 
-
+ /**
+   *
+   * @api {post} /award/joinAward  参与抽奖
+   * @apiName 参与抽奖
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 参与抽奖
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+  * {
+   *   status: 200,
+   *   message: '更新成功'
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '参与失败',
+   *  }
+   */
 
   async joinAward (req, res, next) {
     let awardIndex = req.body.awardIndex
@@ -131,7 +205,31 @@ class Award extends BaseComponent{
     }
   }
 
-
+  /**
+   *
+   * @api {post} /award/awardsAdd  添加奖项
+   * @apiName 添加奖项
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 添加奖项
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '添加成功'
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '添加失败',
+   *  }
+   */
 
   async addAward (req, res, next) {
     const {awardName, amount, des} = req.body
@@ -201,7 +299,32 @@ class Award extends BaseComponent{
     }
   }
 
-
+  /**
+   *
+   * @api {get} /award/getAwardItem  根据索引获取某个奖项详情
+   * @apiName 根据索引获取某个奖项详情
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 根据索引获取某个奖项详情
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '查询成功',
+   *   data: {}
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '查询失败',
+   *  }
+   */
 
   async getAwardItem (req, res, next) {
     let awardIndex = req.query.awardIndex
@@ -231,7 +354,32 @@ class Award extends BaseComponent{
     }
   }
 
-
+  /**
+   *
+   * @api {get} /award/getLucyNum  获取幸运号码
+   * @apiName 获取幸运号码
+   * @apiGroup admin
+   * @apiVersion 1.0.0
+   * @apiDescription 获取幸运号码
+   *
+   * @apiSuccess {String} status 结果码
+   * @apiSuccess {String} message 消息说明
+   * 
+   * @apiSuccessExample {json}Success-Response:
+   *  HTTP/1.1 200 OK
+   * {
+   *   status: 200,
+   *   message: '查询成功',
+   *   data: 123
+   * }
+   *
+   *  @apiErrorExample {json} Error-Response:
+   *  HTTP/1.1 200
+   *  {
+   *   status: 0,
+   *   message: '查询失败',
+   *  }
+   */
   async getLucyNum (req, res, next) {
     let awardIndex = req.query.awardIndex
     let lang = req.query.lang
