@@ -21,14 +21,14 @@ class Award extends BaseComponent{
  *
  * @api {get} /award/getAwardsList  获取奖项列表
  * @apiName 获取奖项列表
- * @apiGroup user
+ * @apiGroup admin
  * @apiVersion 1.0.0
  * @apiDescription 获取奖项列表
  *
  * @apiSuccess {String} status 结果码
  * @apiSuccess {String} message 消息说明
  * 
- * @apiSuccessExample {json}Success-Response:
+ * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
  * {
  *   status: 200,
@@ -43,7 +43,6 @@ class Award extends BaseComponent{
  *   message: '查询失败',
  *  }
  */
-
 
   async getAwardsList (req, res, next) {
     let awardList = await AwardModel.find({}, {'_id': 0, '__v': 0})
@@ -139,7 +138,7 @@ class Award extends BaseComponent{
    *
    * @api {post} /award/joinAward  参与抽奖
    * @apiName 参与抽奖
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 参与抽奖
    *
@@ -304,7 +303,7 @@ class Award extends BaseComponent{
    *
    * @api {get} /award/getAwardItem  根据索引获取某个奖项详情
    * @apiName 根据索引获取某个奖项详情
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 根据索引获取某个奖项详情
    *
@@ -359,7 +358,7 @@ class Award extends BaseComponent{
    *
    * @api {get} /award/getLucyNum  获取幸运号码
    * @apiName 获取幸运号码
-   * @apiGroup user
+   * @apiGroup admin
    * @apiVersion 1.0.0
    * @apiDescription 获取幸运号码
    *
