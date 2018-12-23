@@ -12,5 +12,7 @@ router.get('/getAllUser', User.getAllUser)
 router.post('/uploadFashionImg', User.uploadFashionImg)
 router.post('/fashionImgAdd', User.fashionImgAdd)
 router.get('/getFashionImgList', User.getFashionImgList)
-router.post('/commitComment', User.commitComment)
+router.get('/getPerformList', User.getPerformList)
+router.post('/commitPerformComment', User.commitPerformComment)
+router.post('/commitFashionComment', User.commitFashionComment)
 module.exports = router

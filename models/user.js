@@ -1,6 +1,8 @@
 'use strict'
 
 import mongoose from 'mongoose'
+import dateAndTime from 'date-and-time'
+import userList from '../initData/user'
 
 const Schema = mongoose.Schema
 
@@ -15,5 +17,12 @@ const userSchema = new Schema({
 })
 
 const User = mongoose.model('User', userSchema)
-
+User.findOne((err, data) => {
+	if (!data) {
+		userList.forEach((ele, index) => {
+			ele.createTime = dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss")
+			User.create(ele)
+		})
+	}
+})
 export default User
