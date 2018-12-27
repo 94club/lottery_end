@@ -18,12 +18,12 @@ job1:
         - cd lottery_end
         - git pull
         - yarn install
-        - npm run restart
+        - npm run pro
 job2:
     stage: master_deploy
     only:
         - master
-    when: manual
+    # when: manual
     tags:
         - lottery_end_master_tag
     script:
@@ -34,4 +34,4 @@ job2:
         - cd lottery_end
         - git pull
         - yarn install
-        - npm run restart
+       # - npm run pro

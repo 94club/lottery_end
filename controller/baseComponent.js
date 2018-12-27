@@ -7,7 +7,7 @@ export default class BaseComponent {
 	constructor () {
 		this.getImgPath = this.getImgPath.bind(this)
 	}
-	
+
 	async getImgPath (files, res) {
     return new Promise((resolve, reject) => {
       const hashName = (new Date().getTime() + Math.ceil(Math.random()*10000)).toString(16)

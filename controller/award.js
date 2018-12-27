@@ -13,36 +13,10 @@ class Award extends BaseComponent{
     this.addAward = this.addAward.bind(this)
     this.updateAwardInfo = this.updateAwardInfo.bind(this)
     this.joinAward = this.joinAward.bind(this)
-    this.getAwardItemStatus = this.getAwardItemStatus.bind(this)
     this.getLucyNum = this.getLucyNum.bind(this)
     this.getAwardItem = this.getAwardItem.bind(this)
   }
 
-  /**
-   *
-   * @api {get} /award/remainTime  获取奖项列表
-   * @apiName 获取奖项列表
-   * @apiGroup user
-   * @apiVersion 1.0.0
-   * @apiDescription 获取奖项列表
-   *
-   * @apiSuccess {String} status 结果码
-   * @apiSuccess {String} message 消息说明
-   * 
-   * @apiSuccessExample {json}Success-Response:
-   *  HTTP/1.1 200 OK
-   * {
-   *   status: 200,
-   *   message: '查询成功'
-   * }
-   *
-   *  @apiErrorExample {json} Error-Response:
-   *  HTTP/1.1 200
-   *  {
-   *   status: 0,
-   *   message: '查询失败',
-   *  }
-   */
   async getAwardsList (req, res, next) {
     let awardList = await AwardModel.find({}, {'_id': 0, '__v': 0})
     if (awardList) {
@@ -105,6 +79,7 @@ class Award extends BaseComponent{
     }
     
   }
+
   async joinAward (req, res, next) {
     let awardIndex = req.body.awardIndex
     let username = req.user.username
@@ -150,31 +125,7 @@ class Award extends BaseComponent{
     }
   }
 
-  /**
-   *
-   * @api {get} /award/awardsAdd  添加奖项
-   * @apiName 添加奖项
-   * @apiGroup admin
-   * @apiVersion 1.0.0
-   * @apiDescription 添加奖项
-   *
-   * @apiSuccess {String} status 结果码
-   * @apiSuccess {String} message 消息说明
-   * 
-   * @apiSuccessExample {json}Success-Response:
-   *  HTTP/1.1 200 OK
-   * {
-   *   status: 200,
-   *   message: '查询成功'
-   * }
-   *
-   *  @apiErrorExample {json} Error-Response:
-   *  HTTP/1.1 200
-   *  {
-   *   status: 0,
-   *   message: '查询失败',
-   *  }
-   */
+
   async addAward (req, res, next) {
     const {awardName, amount, des} = req.body
     try {
@@ -242,97 +193,7 @@ class Award extends BaseComponent{
       })
     }
   }
-  
-  /**
-   *
-   * @api {get} /award/isLotteryOver  添加奖项的状态
-   * @apiName 添加奖项的状态
-   * @apiGroup admin
-   * @apiVersion 1.0.0
-   * @apiDescription 添加奖项的状态
-   *
-   * @apiSuccess {String} status 结果码
-   * @apiSuccess {String} message 消息说明
-   * 
-   * @apiSuccessExample {json}Success-Response:
-   *  HTTP/1.1 200 OK
-   * {
-   *   status: 200,
-   *   message: '查询成功',
-   *   data: true
-   * }
-   *
-   *  @apiErrorExample {json} Error-Response:
-   *  HTTP/1.1 200
-   *  {
-   *   status: 0,
-   *   message: '查询失败',
-   *  }
-   */
-  async getAwardItemStatus (req, res, next) {
-    let type = req.query.type
-    let level = req.query.level
-    try {
-      if (!type) {
-        throw new Error('类型不能为空')
-      } else if (!level) {
-        throw new Error('轮次不能为空')
-      }
-    } catch (err) {
-      next({
-        status: 0,
-        message: err.message
-      })
-      return
-    }
-    let awardInfo = await AwardModel.find({'awardList.level': {$eq: level}}, {'awardList.$': 1})
-    if (awardInfo && awardInfo.length > 0) {
-      let status
-      if (type === 'lottery') {
-        status = awardInfo[0].awardList[0].isLotteryOver
-      }
-      if (type === 'openResult') {
-        status = awardInfo[0].awardList[0].isOpenResultOver
-      }
-      res.json({
-        status: 200,
-        message: '查询数据成功',
-        data: status
-      })
-    } else {
-      next({
-        status: 0,
-        message: '查询数据失败'
-      })
-    }
-  }
 
-  /**
-   *
-   * @api {get} /award/getAwardItem  获取某个奖项
-   * @apiName 获取某个奖项
-   * @apiGroup admin
-   * @apiVersion 1.0.0
-   * @apiDescription 获取某个奖项
-   *
-   * @apiSuccess {String} status 结果码
-   * @apiSuccess {String} message 消息说明
-   * 
-   * @apiSuccessExample {json}Success-Response:
-   *  HTTP/1.1 200 OK
-   * {
-   *   status: 200,
-   *   message: '查询成功',
-   *   data: true
-   * }
-   *
-   *  @apiErrorExample {json} Error-Response:
-   *  HTTP/1.1 200
-   *  {
-   *   status: 0,
-   *   message: '查询失败',
-   *  }
-   */
   async getAwardItem (req, res, next) {
     let awardIndex = req.query.awardIndex
     try {
@@ -361,32 +222,7 @@ class Award extends BaseComponent{
     }
   }
 
-  /**
-   *
-   * @api {get} /award/getLucyNum  获取幸运号码
-   * @apiName 获取幸运号码
-   * @apiGroup admin
-   * @apiVersion 1.0.0
-   * @apiDescription 获取幸运号码
-   *
-   * @apiSuccess {String} status 结果码
-   * @apiSuccess {String} message 消息说明
-   * 
-   * @apiSuccessExample {json}Success-Response:
-   *  HTTP/1.1 200 OK
-   * {
-   *   status: 200,
-   *   message: '查询成功',
-   *   data: 123
-   * }
-   *
-   *  @apiErrorExample {json} Error-Response:
-   *  HTTP/1.1 200
-   *  {
-   *   status: 0,
-   *   message: '查询失败',
-   *  }
-   */
+
   async getLucyNum (req, res, next) {
     let awardIndex = req.query.awardIndex
     let lang = req.query.lang
