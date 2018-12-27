@@ -18,7 +18,7 @@ job1:
         - cd lottery_end
         - git pull
         - yarn install
-        - npm run pro
+        - npm run dev
 job2:
     stage: master_deploy
     only:
