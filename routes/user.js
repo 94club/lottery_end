@@ -15,4 +15,9 @@ router.get('/getFashionImgList', User.getFashionImgList)
 router.get('/getPerformList', User.getPerformList)
 router.post('/commitPerformComment', User.commitPerformComment)
 router.post('/commitFashionComment', User.commitFashionComment)
+router.post('/addDanmu', User.addDanmu)
+router.post('/changeDanmuStatus', User.changeDanmuStatus)
+router.get('/getDanmuList', User.getDanmuList)
+router.post('/changeCommentStatus', User.changeCommentStatus) // 控制用户是否可以评论
+router.get('/getCommentStatus', User.getCommentStatus)
 module.exports = router

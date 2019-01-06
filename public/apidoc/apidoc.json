@@ -37,7 +37,7 @@
         "tags": [
           "api"
         ],
-        "summary": "登录系统",
+        "summary": "登录系统； 无则注册，有则登录",
         "description": "",
         "operationId": "login",
         "parameters": [
@@ -456,7 +456,117 @@
             "$ref": "#/parameters/userAgent"
           },
           {
-            "$ref": "#/definitions/FashionObj"
+            "$ref": "#/definitions/PerformObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/changeCommentStatus": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "修改是否能够评价的状态",
+        "operationId": "changeCommentStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/CommentObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/getCommentStatus": {
+      "get": {
+        "tags": [
+          "award"
+        ],
+        "summary": "获取是否能够评价的状态",
+        "operationId": "getCommentStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "状态默认Id",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/addDanmu": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "添加弹幕",
+        "operationId": "addDanmu",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/DanmuObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/changeDanmuStatus": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "改变弹幕的状态",
+        "operationId": "changeDanmuStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/IdObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getDanmuList": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取弹幕",
+        "operationId": "getDanmuList",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
           }
         ],
         "responses": {
@@ -629,8 +739,47 @@
       "properties": {
         "id": {
           "type": "number"
+        }
+      }
+    },
+    "PerformObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
         },
         "score": {
+          "type": "number"
+        }
+      }
+    },
+    "CommentObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        }
+      }
+    },
+    "DanmuObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "username": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "status": {
           "type": "number"
         }
       }
