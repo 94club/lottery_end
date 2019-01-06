@@ -3,6 +3,8 @@
 import UserModel from '../models/user'
 import PerformModel from '../models/perform'
 import FashionModel from '../models/fashion'
+import DanmuModel from '../models/danmu'
+import CommentModel from '../models/comment'
 import dateAndTime from 'date-and-time'
 import constant from '../constant/constant'
 import jsonwebtoken from 'jsonwebtoken'
@@ -25,7 +27,13 @@ class User extends BaseComponent{
     this.getFashionImgList = this.getFashionImgList.bind(this)
     this.getPerformList = this.getPerformList.bind(this)
     this.uploadFashionImg = this.uploadFashionImg.bind(this)
+    this.commitPerformComment = this.commitPerformComment.bind(this)
     this.commitFashionComment = this.commitFashionComment.bind(this)
+    this.changeCommentStatus = this.changeCommentStatus.bind(this)
+    this.getCommentStatus = this.getCommentStatus.bind(this)
+    this.addDanmu = this.addDanmu.bind(this)
+    this.changeDanmuStatus = this.changeDanmuStatus.bind(this)
+    this.getDanmuList = this.getDanmuList.bind(this)
   }
 
   async login(req, res, next) {
@@ -45,9 +53,6 @@ class User extends BaseComponent{
         message: err.message
       })
       return
-    }
-    if (username === '123eveb-admin456') {
-      role = 1
     }
     // 先查一遍看看是否存在
     let user = await UserModel.findOne({
@@ -109,6 +114,140 @@ class User extends BaseComponent{
       } catch (error) {
         
       }
+    }
+  }
+
+  async addDanmu (req, res, next) {
+    const {msg} = req.body
+    const username = req.user.username
+    try {
+      if (!msg) {
+        throw new Error('弹幕不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await DanmuModel.find({})
+    let id = info.length + 1
+    let tempObj = {
+      id,
+      createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
+      username,
+      msg,
+      status: 0
+    }
+    info.unshift(tempObj)
+    let newInfo = await DanmuModel.create(info)
+    if (newInfo) {
+      res.json({
+        status: 200,
+        message: '查询成功',
+        data: id
+      })
+    } else {
+      next({
+        status: 0,
+        message: '更新失败'
+      })
+    }
+  }
+
+  async changeCommentStatus (req, res, next) {
+    const {status, id} = req.body
+    let searchInfo = await CommentModel.findOne({id})
+    if (!searchInfo) {
+      let arr = []
+      arr.push({
+        id,
+        status
+      })
+      let saveInfo = await CommentModel.create(arr)
+      if (saveInfo) {
+        res.json({
+          status: 200,
+          message: '状态添加成功'
+        })
+      } else {
+        next({
+          status: 200,
+          message: '状态添加失败'
+        })
+      }
+    } else {
+      let info = await CommentModel.findOneAndUpdate({id}, {$set: {status}})
+      if (info) {
+        res.json({
+          status: 200,
+          message: '状态更新成功'
+        })
+      } else {
+        next({
+          status: 200,
+          message: '状态更新失败'
+        })
+      }
+    }
+  }
+  async getCommentStatus (req, res, next) {
+    const id = req.query.id
+    let info = await CommentModel.findOne({id}, {'_id': 0, '__v': 0})
+      if (info) {
+        res.json({
+          status: 200,
+          message: '状态获取成功',
+          data: info
+        })
+      } else {
+        next({
+          status: 200,
+          message: '状态获取失败'
+        })
+      }
+  }
+  async changeDanmuStatus (req, res, next) {
+    const {id} = req.body
+    try {
+      if (!id) {
+        throw new Error('序号不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await DanmuModel.findOneAndUpdate({id}, {$set: {status: 1}})
+    if (info) {
+      res.json({
+        status: 200,
+        message: '弹幕状态更新成功'
+      })
+    } else {
+      next({
+        status: 200,
+        message: '弹幕状态更新失败'
+      })
+    }
+  }
+
+  async getDanmuList (req, res, next) {
+    let info = await DanmuModel.find({})
+    if (info) {
+      res.json({
+        status: 200,
+        message: '查询成功',
+        data: info
+      })
+    } else {
+      next({
+        status: 200,
+        message: '查询失败'
+      })
     }
   }
 
@@ -194,7 +333,6 @@ class User extends BaseComponent{
       return
     }
     let info = await UserModel.findOneAndUpdate({username: prizeName}, {$set: {hadPrize}})
-    console.log(info)
     if (info) {
       res.json({
         status: 200,
@@ -242,13 +380,6 @@ class User extends BaseComponent{
           message: '头像更新错误2'
         })
       }
-      // try {
-      // } catch (err) {
-      //   next({
-      //     status: 0,
-      //     message: '头像更新错误222'
-      //   })
-      // }
     })
   }
 
@@ -300,16 +431,9 @@ class User extends BaseComponent{
       } else {
         next({
           status: 0,
-          message: '头像更新错误2'
+          message: '更新错误2'
         })
       }
-      // try {
-      // } catch (err) {
-      //   next({
-      //     status: 0,
-      //     message: '头像更新错误222'
-      //   })
-      // }
     })
   }
  
@@ -349,7 +473,6 @@ class User extends BaseComponent{
         })
       }
     })
-
   }
  
   async getFashionImgList (req, res, next) {
@@ -369,13 +492,11 @@ class User extends BaseComponent{
   }
 
   async commitFashionComment (req, res, next) {
-    const {id, score} = req.body
+    const id = req.body.id
     let username = req.user.username
     try {
       if (!id) {
         throw new Error('序号不能为空')
-      } else if (score <= 0) {
-        throw new Error('评分要大于0')
       }
     } catch (err) {
       next({
@@ -384,23 +505,28 @@ class User extends BaseComponent{
       })
       return
     }
-    let info = await FashionModel.findOne({id}, {'_id': 0})
-    let newArr = []
-    if (info) {
-      newArr.concat(info.gradeDetailList)
+    let updateInfo = await FashionModel.findOne({id})
+    let arr = []
+    if (updateInfo) {
+      arr = arr.concat(updateInfo.gradeDetailList)
+      arr.push({
+        username
+      })
     }
-    newArr.push({username, score})
-    let fashionInfo = await FashionModel.findOneAndUpdate({id}, {$set: {"gradeDetailList": newArr}})
-    if (fashionInfo) {
-      res.json({
-        status: 200,
-        message: '评论成功'
-      })
-    } else {
-      next({
-        status: 0,
-        message: '评论失败'
-      })
+    let info = await FashionModel.findOneAndUpdate({id}, {$set: {'gradeDetailList': arr}})
+    if (info) {
+      let updateInfo = await UserModel.findOneAndUpdate({username}, {$set: {hadFashionComment: true}})
+      if (updateInfo) {
+        res.json({
+          status: 200,
+          message: '添加成功'
+        })
+      } else {
+        next({
+          status: 0,
+          message: '添加失败'
+        })
+      }
     }
   }
 
@@ -422,10 +548,22 @@ class User extends BaseComponent{
     }
     let info = await PerformModel.findOne({id}, {'_id': 0})
     let newArr = []
-    if (info) {
-      newArr.concat(info.gradeDetailList)
+    let gradeDetailList = info.gradeDetailList
+    if (gradeDetailList.length === 0) {
+      newArr.push({username, score})
+    } else {
+      let changeFlag = false
+      gradeDetailList.map((item) => {
+        if (item.username === username) {
+          item.score = score
+          changeFlag = true
+        }
+      })
+      if (!changeFlag) {
+        gradeDetailList.push({username, score})
+      }
+      newArr = gradeDetailList
     }
-    newArr.push({username, score})
     let performInfo = await PerformModel.findOneAndUpdate({id}, {$set: {"gradeDetailList": newArr}})
     if (performInfo) {
       res.json({

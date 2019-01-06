@@ -5,6 +5,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 1
   },
   {
@@ -13,6 +14,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 2
   },
   {
@@ -21,6 +23,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 3
   },
   {
@@ -29,6 +32,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 4
   },
   {
@@ -37,6 +41,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 5
   },
   {
@@ -45,6 +50,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 6
   },
   {
@@ -53,6 +59,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 7
   },
   {
@@ -61,6 +68,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 8
   },
   {
@@ -69,6 +77,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 9
   },
   {
@@ -77,6 +86,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 10
   },
   {
@@ -85,6 +95,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 11
   },
   {
@@ -93,6 +104,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 12
   },
   {
@@ -101,6 +113,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 13
   },
   {
@@ -109,6 +122,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 14
   },
   {
@@ -117,6 +131,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 15
   },
   {
@@ -125,6 +140,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 16
   },
   {
@@ -133,6 +149,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 17
   },
   {
@@ -141,6 +158,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 18
   },
   {
@@ -149,6 +167,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 19
   },
   {
@@ -157,6 +176,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 20
   },
   {
@@ -165,6 +185,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 21
   },
   {
@@ -173,6 +194,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 22
   },
   {
@@ -181,6 +203,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 23
   },
   {
@@ -189,6 +212,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 24
   },
   {
@@ -197,6 +221,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 25
   },
   {
@@ -205,6 +230,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 26
   },
   {
@@ -213,6 +239,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 27
   },
   {
@@ -221,6 +248,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 28
   },
   {
@@ -229,6 +257,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 29
   },
   {
@@ -237,6 +266,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 30
   },
   {
@@ -245,6 +275,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 31
   },
   {
@@ -253,6 +284,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 32
   },
   {
@@ -261,6 +293,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 33
   },
   {
@@ -269,6 +302,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 34
   },
   {
@@ -277,6 +311,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 35
   },
   {
@@ -285,6 +320,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 36
   },
   {
@@ -293,6 +329,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 37
   },
   {
@@ -301,6 +338,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 38
   },
   {
@@ -309,6 +347,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 39
   },
   {
@@ -317,6 +356,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 40
   },
   {
@@ -325,6 +365,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 41
   },
   {
@@ -333,6 +374,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 42
   },
   {
@@ -341,6 +383,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 43
   },
   {
@@ -349,6 +392,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 44
   },
   {
@@ -357,6 +401,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 45
   },
   {
@@ -365,6 +410,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 46
   },
   {
@@ -373,6 +419,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 47
   },
   {
@@ -381,6 +428,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 48
   },
   {
@@ -389,6 +437,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 49
   },
   {
@@ -397,6 +446,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 50
   },
   {
@@ -405,6 +455,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 51
   },
   {
@@ -413,6 +464,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 52
   },
   {
@@ -421,6 +473,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 53
   },
   {
@@ -429,6 +482,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 54
   },
   {
@@ -437,6 +491,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 55
   },
   {
@@ -445,6 +500,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 56
   },
   {
@@ -453,6 +509,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 57
   },
   {
@@ -461,6 +518,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 58
   },
   {
@@ -469,6 +527,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 59
   },
   {
@@ -477,6 +536,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 60
   },
   {
@@ -485,6 +545,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 61
   },
   {
@@ -493,6 +554,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 62
   },
   {
@@ -501,6 +563,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 63
   },
   {
@@ -509,6 +572,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 64
   },
   {
@@ -517,6 +581,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 65
   },
   {
@@ -525,6 +590,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 66
   },
   {
@@ -533,6 +599,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 67
   },
   {
@@ -541,6 +608,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 68
   },
   {
@@ -549,6 +617,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 69
   },
   {
@@ -557,6 +626,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 70
   },
   {
@@ -565,6 +635,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 71
   },
   {
@@ -573,6 +644,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 72
   },
   {
@@ -581,6 +653,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 73
   },
   {
@@ -589,6 +662,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 74
   },
   {
@@ -597,6 +671,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 75
   },
   {
@@ -605,6 +680,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 76
   },
   {
@@ -613,6 +689,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 77
   },
   {
@@ -621,6 +698,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 78
   },
   {
@@ -629,6 +707,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 79
   },
   {
@@ -637,6 +716,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 80
   },
   {
@@ -645,6 +725,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 81
   },
   {
@@ -653,6 +734,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 82
   },
   {
@@ -661,6 +743,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 83
   },
   {
@@ -669,6 +752,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 84
   },
   {
@@ -677,6 +761,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 85
   },
   {
@@ -685,6 +770,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 86
   },
   {
@@ -693,6 +779,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 87
   },
   {
@@ -701,6 +788,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 88
   },
   {
@@ -709,6 +797,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 89
   },
   {
@@ -717,6 +806,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 90
   },
   {
@@ -725,6 +815,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 91
   },
   {
@@ -733,6 +824,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 92
   },
   {
@@ -741,6 +833,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 93
   },
   {
@@ -749,6 +842,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 94
   },
   {
@@ -757,6 +851,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 95
   },
   {
@@ -765,6 +860,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 96
   },
   {
@@ -773,6 +869,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 97
   },
   {
@@ -781,6 +878,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 98
   },
   {
@@ -789,6 +887,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 99
   },
   {
@@ -797,6 +896,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 100
   },
   {
@@ -805,6 +905,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 101
   },
   {
@@ -813,6 +914,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 102
   },
   {
@@ -821,6 +923,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 103
   },
   {
@@ -829,6 +932,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 104
   },
   {
@@ -837,6 +941,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 105
   },
   {
@@ -845,6 +950,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 106
   },
   {
@@ -853,6 +959,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 107
   },
   {
@@ -861,6 +968,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 108
   },
   {
@@ -869,6 +977,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 109
   },
   {
@@ -877,6 +986,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 110
   },
   {
@@ -885,6 +995,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 111
   },
   {
@@ -893,6 +1004,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 112
   },
   {
@@ -901,6 +1013,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 113
   },
   {
@@ -909,6 +1022,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 114
   },
   {
@@ -917,6 +1031,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 115
   },
   {
@@ -925,6 +1040,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 116
   },
   {
@@ -933,6 +1049,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 117
   },
   {
@@ -941,6 +1058,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 118
   },
   {
@@ -949,6 +1067,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 119
   },
   {
@@ -957,6 +1076,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 120
   },
   {
@@ -965,6 +1085,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 121
   },
   {
@@ -973,6 +1094,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 122
   },
   {
@@ -981,6 +1103,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 123
   },
   {
@@ -989,6 +1112,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 124
   },
   {
@@ -997,6 +1121,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 125
   },
   {
@@ -1005,6 +1130,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 126
   },
   {
@@ -1013,6 +1139,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 127
   },
   {
@@ -1021,6 +1148,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 128
   },
   {
@@ -1029,6 +1157,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 129
   },
   {
@@ -1037,6 +1166,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 130
   },
   {
@@ -1045,6 +1175,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 131
   },
   {
@@ -1053,6 +1184,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 132
   },
   {
@@ -1061,6 +1193,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 133
   },
   {
@@ -1069,6 +1202,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 134
   },
   {
@@ -1077,6 +1211,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 135
   },
   {
@@ -1085,6 +1220,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 136
   },
   {
@@ -1093,6 +1229,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 137
   },
   {
@@ -1101,6 +1238,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 138
   },
   {
@@ -1109,6 +1247,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 139
   },
   {
@@ -1117,6 +1256,7 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 140
   },
   {
@@ -1125,6 +1265,16 @@ export default [
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
+    hadFashionComment: false,
     id: 141
+  },
+  {
+    username: '123eveb-admin456',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 1,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 142
   }
 ]

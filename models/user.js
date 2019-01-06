@@ -13,7 +13,8 @@ const userSchema = new Schema({
 	lang: String, // 语言
 	role: Number,  // 0 普通 1管理
 	avatar: {type: String, default: '/public/img/avatar.jpg'}, // 头像
-	hadPrize: {type: Boolean, default: false} // 是否中奖
+	hadPrize: {type: Boolean, default: false}, // 是否中奖
+	hadFashionComment:  {type: Boolean, default: false} // 是否评论服装
 })
 
 const User = mongoose.model('User', userSchema)

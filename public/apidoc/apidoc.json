@@ -1,0 +1,788 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "这是alistar为抽奖后台准备的接口文档",
+    "version": "1.0.0",
+    "title": "抽奖后台接口文档"
+  },
+  "host": "localhost:9091",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "api",
+      "description": "no auth operation"
+    },
+    {
+      "name": "award",
+      "description": "Operations about admin"
+    },
+    {
+      "name": "user",
+      "description": "Operations about user"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/login": {
+      "post": {
+        "tags": [
+          "api"
+        ],
+        "summary": "登录系统； 无则注册，有则登录",
+        "description": "",
+        "operationId": "login",
+        "parameters": [
+          {
+            "name": "userObject",
+            "in": "body",
+            "description": "userObject shoule be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/awardList": {
+      "get": {
+        "tags": [
+          "award"
+        ],
+        "summary": "获取奖项列表",
+        "operationId": "getAwardsList",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/updateAwardInfo": {
+      "post": {
+        "tags": [
+          "award"
+        ],
+        "summary": "更新奖项信息",
+        "operationId": "updateAwardInfo",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "awardObj",
+            "in": "body",
+            "description": "对某个奖项的是否开启，抽奖是否结束，开奖是否结束，中奖者，兑奖号的更新",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Award"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/joinAward": {
+      "post": {
+        "tags": [
+          "award"
+        ],
+        "summary": "更新参与抽奖的用户",
+        "operationId": "joinAward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "awardObj",
+            "in": "body",
+            "description": "对某个奖项抽奖用户的更新",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AwardJoin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/addAward": {
+      "post": {
+        "tags": [
+          "award"
+        ],
+        "summary": "添加奖项",
+        "operationId": "addAward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "awardObj",
+            "in": "body",
+            "description": "添加奖项",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AwardDes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/getAwardItem": {
+      "get": {
+        "tags": [
+          "award"
+        ],
+        "summary": "根据索引获取奖项的详情",
+        "operationId": "getAwardItem",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "awardIndex",
+            "in": "query",
+            "description": "奖项索引",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/getLucyNum": {
+      "get": {
+        "tags": [
+          "award"
+        ],
+        "summary": "获取幸运号",
+        "operationId": "getLucyNum",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "awardIndex",
+            "in": "query",
+            "description": "奖项索引",
+            "type": "number"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "用户",
+            "type": "string"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "语言类型",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getUserInfo": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取用户信息",
+        "operationId": "getUserInfo",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "用户登出",
+        "operationId": "logout",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/updateUserInfo": {
+      "post": {
+        "tags": [
+          "award"
+        ],
+        "summary": "更新用户信息",
+        "operationId": "updateUserInfo",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "userDes",
+            "in": "body",
+            "description": "添加奖项",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/uploadAvatar": {
+      "post": {
+        "tags": [
+          "award"
+        ],
+        "summary": "更新用户图像",
+        "operationId": "uploadAvatar",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "imgFile",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getAllUser": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取所有用户",
+        "operationId": "getAllUser",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/fashionImgAdd": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "添加服装",
+        "operationId": "fashionImgAdd",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/IdObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/uploadFashionImg": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "更新服装图片",
+        "operationId": "uploadFashionImg",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "imgFile",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getFashionImgList": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取所有服装",
+        "operationId": "getFashionImgList",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getPerformList": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取所有表演",
+        "operationId": "getPerformList",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/commitFashionComment": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "评价服装",
+        "operationId": "commitFashionComment",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/FashionObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/commitPerformComment": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "评价表演",
+        "operationId": "commitPerformComment",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/PerformObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/changeCommentStatus": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "修改是否能够评价的状态",
+        "operationId": "changeCommentStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/CommentObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/award/getCommentStatus": {
+      "get": {
+        "tags": [
+          "award"
+        ],
+        "summary": "获取是否能够评价的状态",
+        "operationId": "getCommentStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "状态默认Id",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/addDanmu": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "添加弹幕",
+        "operationId": "addDanmu",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/DanmuObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/changeDanmuStatus": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "改变弹幕的状态",
+        "operationId": "changeDanmuStatus",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          },
+          {
+            "$ref": "#/definitions/IdObj"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    },
+    "/user/getDanmuList": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取弹幕",
+        "operationId": "getDanmuList",
+        "parameters": [
+          {
+            "$ref": "#/parameters/userAgent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation success"
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "userAgent": {
+      "name": "Authorization",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "default": "Bearer "
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "role": {
+          "type": "number",
+          "default": 0
+        },
+        "avatar": {
+          "type": "string",
+          "default": "/public/img/avatar.jpg"
+        },
+        "hadPrize": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "Award": {
+      "type": "object",
+      "properties": {
+        "awardName": {
+          "type": "string"
+        },
+        "awardIndex": {
+          "type": "string"
+        },
+        "des": {
+          "type": "string"
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "isLotteryOver": {
+          "type": "boolean"
+        },
+        "isOpenResultOver": {
+          "type": "boolean"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "overTime": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "redeemNumber": {
+          "type": "number"
+        },
+        "lotteryJoinList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LotteryJoinList"
+          }
+        },
+        "luckyNumList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LuckyNumList"
+          }
+        }
+      },
+      "xml": {
+        "name": "Award"
+      }
+    },
+    "UserDes": {
+      "type": "object",
+      "properties": {
+        "hadPrize": {
+          "type": "boolean"
+        },
+        "prizeName": {
+          "type": "string"
+        }
+      }
+    },
+    "AwardJoin": {
+      "type": "object",
+      "properties": {
+        "awardName": {
+          "type": "string"
+        },
+        "awardIndex": {
+          "type": "string"
+        }
+      }
+    },
+    "LuckyNumList": {
+      "type": "object",
+      "properties": {
+        "luckyNum": {
+          "type": "number"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "LotteryJoinList": {
+      "type": "string"
+    },
+    "AwardDes": {
+      "type": "object",
+      "properties": {
+        "awardName": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "des": {
+          "type": "string"
+        }
+      }
+    },
+    "IdObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      }
+    },
+    "FashionObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      }
+    },
+    "PerformObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "score": {
+          "type": "number"
+        }
+      }
+    },
+    "CommentObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        }
+      }
+    },
+    "DanmuObj": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "username": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
