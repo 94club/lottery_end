@@ -525,7 +525,13 @@
             "$ref": "#/parameters/userAgent"
           },
           {
-            "$ref": "#/definitions/DanmuObj"
+            "name": "DanmuObj",
+            "in": "body",
+            "description": "DanmuObj shoule be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DanmuObj"
+            }
           }
         ],
         "responses": {
@@ -767,20 +773,8 @@
     "DanmuObj": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "number"
-        },
-        "username": {
-          "type": "string"
-        },
         "msg": {
           "type": "string"
-        },
-        "createTime": {
-          "type": "string"
-        },
-        "status": {
-          "type": "number"
         }
       }
     }

@@ -79,41 +79,6 @@ class User extends BaseComponent{
       } catch (error) {
         
       }
-    } else {
-      try {
-        let arr = await UserModel.find({})
-        let newUser = {
-          username,
-          lang,
-          role,
-          createTime: dateAndTime.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
-          id: arr.length + 1
-        }
-        try {
-          UserModel.create(newUser, (err) => {
-            if (err) {
-              next({
-                status: 0,
-                message: '注册失败'
-              })
-            } else {
-              redisManager.set(token, username)
-              res.json({
-                status: 200,
-                message: '注册成功',
-                data: token
-              })
-            }
-          })
-        } catch (err) {
-          next({
-            status: 0,
-            message: err.message
-          })
-        }
-      } catch (error) {
-        
-      }
     }
   }
 
@@ -130,6 +95,17 @@ class User extends BaseComponent{
         message: err.message
       })
       return
+    }
+    let lastInfo = await DanmuModel.find({username}).sort({id: -1})
+    console.log(lastInfo)
+    if (lastInfo.length > 0) {
+      if (new Date().getTime() - new Date(lastInfo[0].createTime).getTime() <= 10000) {
+        res.json({
+          status: 0,
+          message: '发送过于频繁'
+        })
+        return
+      }
     }
     let info = await DanmuModel.find({})
     let id = info.length + 1
@@ -173,7 +149,7 @@ class User extends BaseComponent{
         })
       } else {
         next({
-          status: 200,
+          status: 0,
           message: '状态添加失败'
         })
       }
@@ -236,7 +212,7 @@ class User extends BaseComponent{
   }
 
   async getDanmuList (req, res, next) {
-    let info = await DanmuModel.find({})
+    let info = await DanmuModel.find({}).sort({'id': -1})
     if (info) {
       res.json({
         status: 200,
