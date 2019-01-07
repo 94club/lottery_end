@@ -35,3 +35,4 @@ job2:
         - git pull
         - yarn install
         - pm2 start
+        - sudo rsync -azhe ssh /data/lottery_end/ choujiang:/data/lottery_end/
