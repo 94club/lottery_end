@@ -34,5 +34,5 @@ job2:
         - cd lottery_end
         - git pull
         - yarn install
-        - su gitlab-runnner
+        - su gitlab-runner
         - pm2 restart 0
