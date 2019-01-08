@@ -34,12 +34,11 @@ class User extends BaseComponent{
     this.addDanmu = this.addDanmu.bind(this)
     this.changeDanmuStatus = this.changeDanmuStatus.bind(this)
     this.getDanmuList = this.getDanmuList.bind(this)
+    this.uploadBase64 = this.uploadBase64.bind(this)
   }
 
   async login(req, res, next) {
-    let role = 0 // 0代表普通用户 1代表管理员
     let username = req.body.username
-    let lang = req.body.lang
     const tokenObj = {
       username
     }
@@ -79,6 +78,11 @@ class User extends BaseComponent{
       } catch (error) {
         
       }
+    } else {
+      next({
+        status: 0,
+        message: '用户不存在'
+      })
     }
   }
 
@@ -97,7 +101,6 @@ class User extends BaseComponent{
       return
     }
     let lastInfo = await DanmuModel.find({username}).sort({id: -1})
-    console.log(lastInfo)
     if (lastInfo.length > 0) {
       if (new Date().getTime() - new Date(lastInfo[0].createTime).getTime() <= 10000) {
         res.json({
@@ -322,6 +325,35 @@ class User extends BaseComponent{
     }
   }
 
+  async uploadBase64 (req, res,next) {
+    const {baseStr, id} = req.body
+    try {
+      if (!id) {
+        throw new Error('序号不能为空')
+      } else if (!baseStr) {
+        throw new Error('图片不能为空')
+      }
+    } catch (err) {
+      next({
+        status: 0,
+        message: err.message
+      })
+      return
+    }
+    let info = await FashionModel.findOneAndUpdate({id}, {$set:{"imgSrc": baseStr}})
+    if (info) {
+      res.json({
+        status: 200,
+        message: '更新成功',
+        data: baseStr
+      })
+    } else {
+      next({
+        status: 0,
+        message: '更新错误'
+      })
+    }
+  }
   async uploadAvatar (req, res, next) {
     const form = new formidable.IncomingForm()
     let username = req.user.username
@@ -391,7 +423,6 @@ class User extends BaseComponent{
       let imgPath = await this.getImgPath(files, res)
       if (imgPath) {
         imgPath = '/public/img/' + imgPath
-        console.log(imgPath)
         let info = await FashionModel.findOneAndUpdate({id}, {$set:{"imgSrc": imgPath}})
         if (info) {
           res.json({
