@@ -36,3 +36,5 @@ job2:
         - yarn install
         - pm2 start
         - sudo rsync -azhe ssh /data/lottery_end/ choujiang:/data/lottery_end/
+        - sudo ssh 40.83.73.235
+        - pm2 start
