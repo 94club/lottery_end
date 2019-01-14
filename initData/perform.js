@@ -32,7 +32,7 @@ export default [
     {
       id: 6,
       department: '财务部门',
-      joinPeople: 'Moon, HL, Cherry, Judy, Carlos & Germaine',
+      joinPeople: 'Moon, HL, Cherry, Judy, Carlos, Arie, Aimee & Germaine',
       performName: '歌舞串烧《至少还有你》'
     },
     {
@@ -43,48 +43,42 @@ export default [
     },
     {
       id: 8,
-      department: '行政部 & 财务运营部',
-      joinPeople: 'Kellie & VJ',
-      performName: '舞蹈《Remix Song》'
-    },
-    {
-      id: 9,
       department: '行政部 & ITS',
       joinPeople: 'Joy, Mary Grace & Daven',
       performName: '歌舞《Perfect》'
     },
     {
-      id: 10,
+      id: 9,
       department: '平台运营部',
       joinPeople: 'Whole Platform Operation Dept. (10 people)',
       performName: '大合唱 《猪之歌+Everyone is No. 1》'
     },
     {
-      id: 11,
+      id: 10,
       department: '运维部 & 商务部',
       joinPeople: 'Bruce & Icey',
       performName: '说唱《The next Rap God》'
     },
     {
-      id: 12,
-      department: '商务部 & 运维部',
-      joinPeople: 'Jones, Mina, Bart, Wayne & Bruce',
-      performName: '小品《特工》'
+      id: 11,
+      department: '财务部门',
+      joinPeople: 'Hon Leong',
+      performName: '独唱《海阔天空》'
     },
     {
-      id: 13,
+      id: 12,
       department: '行政部 & 后勤部',
       joinPeople: 'Danilo, Marloun, Wayne & Ronnie',
       performName: '舞蹈《The Lost Brothers》'
     },
     {
-      id: 14,
-      department: 'Java 技术部',
-      joinPeople: 'Jeff & Lebron',
-      performName: '歌唱《老男孩》'
+      id: 13,
+      department: '商务部 & 运维部',
+      joinPeople: 'Jones, Mina, Bart, Wayne & Bruce',
+      performName: '小品《特工》'
     },
     {
-      id: 15,
+      id: 14,
       department: '平台运营部',
       joinPeople: 'Aurora',
       performName: '舞蹈串烧 《Black Dress》'

@@ -9,7 +9,7 @@ export default [
     id: 1
   },
   {
-    username: 'kellie-o',
+    username: 'kellie-go',
     lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -63,7 +63,7 @@ export default [
     id: 7
   },
   {
-    username: 'wS-tan',
+    username: 'ws-tan',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -117,8 +117,8 @@ export default [
     id: 13
   },
   {
-    username: 'analiza-benongo',
-    lang: 'en',
+    username: 'pocky',
+    lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -171,7 +171,7 @@ export default [
     id: 19
   },
   {
-    username: 'evangeline-gani',
+    username: 'evangeline-ganio',
     lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -216,8 +216,8 @@ export default [
     id: 24
   },
   {
-    username: 'michael-mananquil',
-    lang: 'en',
+    username: 'panda',
+    lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -225,8 +225,8 @@ export default [
     id: 25
   },
   {
-    username: 'romel-romel',
-    lang: 'en',
+    username: 'amber',
+    lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -243,7 +243,7 @@ export default [
     id: 27
   },
   {
-    username: 'judy-bich',
+    username: 'judy-nguyen',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -351,7 +351,7 @@ export default [
     id: 39
   },
   {
-    username: 'isabel-logronio',
+    username: 'wayne-autajay',
     lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -360,8 +360,8 @@ export default [
     id: 40
   },
   {
-    username: 'angelica-baltazar',
-    lang: 'en',
+    username: 'jean',
+    lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -369,8 +369,8 @@ export default [
     id: 41
   },
   {
-    username: 'ariane-duran',
-    lang: 'en',
+    username: 'joe',
+    lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -675,7 +675,7 @@ export default [
     id: 75
   },
   {
-    username: 'icey-wang',
+    username: 'icey-gu',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -756,8 +756,8 @@ export default [
     id: 84
   },
   {
-    username: 'arvin-jing',
-    lang: 'cn',
+    username: 'bryan-blanquisco',
+    lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
     hadPrize: false,
@@ -945,7 +945,7 @@ export default [
     id: 105
   },
   {
-    username: 'joseph',
+    username: 'joseph-liew',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -954,7 +954,7 @@ export default [
     id: 106
   },
   {
-    username: 'kathy-yang',
+    username: 'frank-peng',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -999,7 +999,7 @@ export default [
     id: 111
   },
   {
-    username: 'frank-peng',
+    username: 'johnny-liu',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1098,7 +1098,7 @@ export default [
     id: 122
   },
   {
-    username: 'darcy-yu',
+    username: 'bryan-blanquisco',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1116,7 +1116,7 @@ export default [
     id: 124
   },
   {
-    username: 'johnny-liu',
+    username: 'tom-li',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1170,7 +1170,7 @@ export default [
     id: 130
   },
   {
-    username: 'jason-gU',
+    username: 'jason-gu',
     lang: 'cn',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1224,7 +1224,7 @@ export default [
     id: 136
   },
   {
-    username: 'paolo-agulto',
+    username: 'anivia-li',
     lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1242,7 +1242,7 @@ export default [
     id: 138
   },
   {
-    username: 'daven',
+    username: 'daven-dayana',
     lang: 'en',
     avatar: '/public/img/avatar.jpg',
     role: 0,
@@ -1555,5 +1555,33 @@ export default [
     hadPrize: false,
     hadFashionComment: false,
     id: 173
+  }
+  ,
+  {
+    username: 'ariane-duran',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 174
+  },
+  {
+    username: 'hannah',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 175
+  },
+  {
+    username: 'nicole',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 176
   }
 ]
