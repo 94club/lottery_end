@@ -1555,8 +1555,7 @@ export default [
     hadPrize: false,
     hadFashionComment: false,
     id: 173
-  }
-  ,
+  },
   {
     username: 'ariane-duran',
     lang: 'cn',
@@ -1583,5 +1582,213 @@ export default [
     hadPrize: false,
     hadFashionComment: false,
     id: 176
-  }
+  },
+  {
+    username: 'robert-uy',
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 177
+  },
+  {
+    username: 'vip41',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 178
+  },
+  {
+    username: 'vip42',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 179
+  },
+  {
+    username: 'vip43',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 180
+  },
+  {
+    username: 'vip44',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 181
+  },
+  {
+    username: 'vip45',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 182
+  },
+  {
+    username: 'vip46',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 183
+  },
+  {
+    username: 'vip47',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 184
+  },
+  {
+    username: 'vip48',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 185
+  },
+  {
+    username: 'vip49',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 186
+  },
+  {
+    username: 'vip50',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 187
+  },
+  {
+    username: 'vip31',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 188
+  },
+  {
+    username: 'vip32',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 189
+  },
+  {
+    username: 'vip33',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 190
+  },
+  {
+    username: 'vip34',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 191
+  },
+  {
+    username: 'vip35',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 192
+  },
+  {
+    username: 'vip36',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 193
+  },
+  {
+    username: 'vip37',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 194
+  },
+  {
+    username: 'vip38',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 195
+  },
+  {
+    username: 'vip39',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 196
+  },
+  {
+    username: 'vip40',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 197
+  },
+  {
+    username: 'vip-jane',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 198
+  },
+  {
+    username: 'vip-david',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 199
+  },
+
 ]
